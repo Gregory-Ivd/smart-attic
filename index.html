@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Attic — копірайтинг, лендинги, SEO</title>
+<meta name="description" content="Smart Attic — копірайтинг, лендинги під ключ і SEO без води. Григорій Йвд, 12+ років досвіду. UA / RU / EN.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Cpath d='M16 27 L10.5 13 Q16 10 21.5 13 Z' fill='white'/%3E%3Ccircle cx='16' cy='15' r='1.7' fill='%230f766e'/%3E%3Crect x='15.3' y='17' width='1.4' height='9' rx='0.7' fill='%230f766e'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#f6f7f4; --paper:#ffffff; --ink:#14201d; --muted:#59655f;
+    --accent:#0f766e; --accent-soft:#e4efed; --amber:#e8a13a;
+    --line:#ececef; --shadow:0 6px 30px rgba(20,20,40,.07); --shadow-sm:0 2px 10px rgba(20,20,40,.05);
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,"Segoe UI",Roboto,Inter,system-ui,Arial,sans-serif;
+    font-size:19px;line-height:1.66;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{line-height:1.15;letter-spacing:-.02em;margin:0}
+  .accent{color:var(--accent)}
+
+  /* Header */
+  header.site{position:sticky;top:0;z-index:40;background:rgba(250,249,247,.85);
+    backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:16px;height:64px}
+  .logo{font-weight:800;font-size:21px;letter-spacing:-.03em;display:flex;align-items:center;gap:9px}
+  .logo .mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#159b8d);
+    display:grid;place-items:center;color:#fff;font-size:16px;box-shadow:var(--shadow-sm)}
+  .nav .spring{flex:1}
+  .langs{display:flex;gap:2px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px}
+  .langs button{border:0;background:transparent;font:inherit;font-size:13px;font-weight:700;color:var(--muted);
+    padding:5px 11px;border-radius:999px;cursor:pointer;letter-spacing:.04em}
+  .langs button.on{background:var(--accent);color:#fff}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-weight:700;
+    padding:11px 20px;border-radius:999px;font-size:15px;border:0;cursor:pointer;box-shadow:var(--shadow-sm);
+    transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+  .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .nav .btn{padding:9px 16px;font-size:14px}
+  @media(max-width:640px){.nav .btn{display:none}.langs button{padding:5px 9px}}
+
+  /* Hero */
+  .hero{padding:74px 0 56px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-120px;right:-120px;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,var(--accent-soft),transparent 70%);z-index:0}
+  .hero .wrap{position:relative;z-index:1}
+  .kicker{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:13px;
+    letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:20px}
+  .hero h1{font-size:54px;font-weight:800;max-width:14ch}
+  .hero p.lead{font-size:22px;color:var(--muted);max-width:60ch;margin:20px 0 30px}
+  .hero .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:40px}
+  .stat b{display:inline-block;font-size:30px;font-weight:800;color:var(--accent);letter-spacing:-.02em;line-height:1.15;
+    background-image:linear-gradient(var(--accent-soft),var(--accent-soft));background-repeat:no-repeat;background-position:0 92%;background-size:0% .34em;transition:background-size .6s ease .12s}
+  .stats.in .stat b{background-size:100% .34em}
+  .stat span{display:block;font-size:15px;color:var(--muted)}
+  @media(max-width:640px){.hero h1{font-size:38px}.hero p.lead{font-size:18px}.hero{padding:48px 0 40px}}
+
+  section{padding:56px 0}
+  .sec-head{margin-bottom:32px}
+  .sec-head h2{font-size:34px;font-weight:800}
+  .sec-head p{color:var(--muted);font-size:19px;margin:10px 0 0;max-width:62ch}
+  @media(max-width:640px){.sec-head h2{font-size:27px}}
+
+  /* Services */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px 26px;
+    box-shadow:var(--shadow-sm);transition:transform .15s,box-shadow .15s}
+  .card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .card .ico{width:46px;height:46px;border-radius:12px;background:var(--accent-soft);color:var(--accent);
+    display:grid;place-items:center;font-size:23px;margin-bottom:14px}
+  .card h3{font-size:21px;font-weight:800;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:17px;margin:0}
+
+  /* Cases */
+  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:860px){.cases{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.cases{grid-template-columns:1fr}}
+  .case{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-sm)}
+  .case .tag{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}
+  .case h3{font-size:19px;font-weight:800;margin:6px 0 8px}
+  .case p{color:var(--muted);font-size:16px;margin:0}
+  .case a.more{display:inline-block;margin-top:12px;font-weight:700;font-size:14px;color:var(--accent)}
+
+  /* About */
+  .about{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:40px;box-shadow:var(--shadow-sm);display:flex;gap:32px;align-items:flex-start}
+  .about-body{flex:1;min-width:0}
+  .avatar{position:relative;flex:0 0 150px;width:150px;height:150px;border-radius:50%;overflow:hidden;background:var(--accent-soft);display:grid;place-items:center}
+  .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .avatar span{font-size:46px;font-weight:800;color:var(--accent)}
+  .about p{font-size:19px;max-width:70ch}
+  .about ul{list-style:none;padding:0;margin:22px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:760px){.about{padding:26px;flex-direction:column;align-items:center;text-align:center}.about ul{grid-template-columns:1fr;text-align:left}.about-body p{text-align:left}}
+  .about li{background:var(--bg);border-radius:12px;padding:16px 18px;font-size:16px}
+  .about li b{display:block;color:var(--accent);font-size:15px;margin-bottom:3px}
+
+  /* Process */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+  @media(max-width:760px){.steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:440px){.steps{grid-template-columns:1fr}}
+  .step{counter-increment:s;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-sm)}
+  .step::before{content:"0" counter(s);font-weight:800;font-size:28px;color:var(--accent);opacity:.4;display:block;margin-bottom:8px}
+  .step h3{font-size:17px;font-weight:800;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:16px;margin:0}
+
+  /* Path / journey */
+  .path{display:flex;align-items:stretch;gap:14px}
+  .path .pstep{flex:1;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-sm)}
+  .path .pnum{font-weight:800;font-size:14px;color:var(--accent);letter-spacing:.1em;margin-bottom:8px}
+  .path .pstep h3{font-size:18px;font-weight:800;margin-bottom:6px}
+  .path .pstep p{color:var(--muted);font-size:16px;margin:0}
+  .path .parr{align-self:center;color:var(--accent);font-size:26px;font-weight:700}
+  @media(max-width:760px){.path{flex-direction:column}.path .parr{transform:rotate(90deg)}}
+
+  /* Contact */
+  .contact{background:linear-gradient(135deg,#0a201c,#0f3a33);color:#fff;border-radius:24px;padding:48px 40px;text-align:center}
+  .contact h2{font-size:34px;font-weight:800}
+  .contact p{color:#b9d8d1;font-size:18px;max-width:54ch;margin:14px auto 26px}
+  .contact .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .contact .btn.tg{background:#fff;color:#0a201c}
+  .contact .btn.mail{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff;box-shadow:none}
+  @media(max-width:640px){.contact{padding:34px 22px}.contact h2{font-size:26px}}
+
+  /* FAQ */
+  .faq-list{display:grid;gap:12px}
+  .faq-item{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:2px 22px;box-shadow:var(--shadow-sm)}
+  .faq-item summary{cursor:pointer;font-weight:700;font-size:18px;padding:16px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:"+";color:var(--accent);font-size:26px;font-weight:700;line-height:1;transition:transform .2s}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item p{margin:0 0 18px;color:var(--muted);font-size:17px}
+
+  /* Rules / без ілюзій */
+  .rules{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media(max-width:760px){.rules{grid-template-columns:1fr}}
+  .rule{display:flex;gap:16px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow-sm)}
+  .rule .n{font-weight:800;font-size:30px;color:var(--accent);line-height:1;flex:0 0 auto;opacity:.5}
+  .rule p{margin:0;font-size:18px;font-weight:600;line-height:1.45}
+
+  /* Motion */
+  header.site.scrolled{box-shadow:0 4px 22px rgba(18,30,22,.07)}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  footer.site{padding:34px 0 48px;color:var(--muted);font-size:14px;text-align:center}
+  footer.site b{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a href="#top" class="logo"><span class="mark">✒</span> Smart&nbsp;Attic</a>
+    <span class="spring"></span>
+    <div class="langs" id="langs">
+      <button data-lang="ua" class="on">UA</button>
+      <button data-lang="ru">RU</button>
+      <button data-lang="en">EN</button>
+    </div>
+    <a class="btn" href="https://t.me/Gregory_ivd" target="_blank" rel="noopener" data-i18n="nav_cta">Обговорити проєкт</a>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <span class="kicker" data-i18n="hero_kicker">Копірайтинг без води</span>
+    <h1 data-i18n="hero_h1">Більшість текстів — шум. Мої приносять заявки.</h1>
+    <p class="lead" data-i18n="hero_sub">Не кидаю текст «у вакуум» — збираю сторінку цілком: копірайтинг, лендинг, SEO. Для українського бізнесу. 12 років, три мови, нуль зайвих слів.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://t.me/Gregory_ivd" target="_blank" rel="noopener" data-i18n="hero_cta">Обговорити проєкт →</a>
+      <a class="btn ghost" href="#cases" data-i18n="hero_cta2">Подивитись роботи</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>12+</b><span data-i18n="stat1">років досвіду</span></div>
+      <div class="stat"><b>3</b><span data-i18n="stat2">мови: UA · RU · EN</span></div>
+      <div class="stat"><b>5+</b><span data-i18n="stat3">галузей</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="services_title">Що я роблю</h2>
+      <p data-i18n="services_sub">Повний цикл: від першого слова до сторінки, що приносить заявки. Не «красиво» — працює.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="ico">✍️</div>
+        <h3 data-i18n="svc1_t">Копірайтинг</h3>
+        <p data-i18n="svc1_d">Лендинги, сайти, продуктові описи, email-розсилки, статті. Тексти, які читають і після яких діють.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🧩</div>
+        <h3 data-i18n="svc2_t">Лендинги під ключ</h3>
+        <p data-i18n="svc2_d">Не лише текст — готова сторінка: структура, верстка, публікація (HTML / GitHub Pages). Здаю результат, а не файл у Word.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🔍</div>
+        <h3 data-i18n="svc3_t">SEO</h3>
+        <p data-i18n="svc3_d">Тексти під пошук: семантика, структура, заголовки. Щоб сторінку знаходили, а не лише гарно виглядала.</p>
+      </div>
+      <div class="card">
+        <div class="ico">⚡</div>
+        <h3 data-i18n="svc4_t">AI-процес</h3>
+        <p data-i18n="svc4_d">Працюю з AI-інструментами — швидше й вигідніше без втрати якості. Машина чорнить, людина відповідає за результат.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section id="cases">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="cases_title">Вибрані роботи</h2>
+      <p data-i18n="cases_sub">Агенції, бренди й власні проєкти. Конкретні цифри та посилання — на запит.</p>
+    </div>
+    <div class="cases">
+      <div class="case">
+        <div class="tag">Livepage</div>
+        <h3 data-i18n="case1_t">SEO-копірайтинг</h3>
+        <p data-i18n="case1_d">Статті та посадкові сторінки для міжнародної digital-агенції: тексти під пошук і під конверсію.</p>
+        <a class="more" href="https://livepage.ua/" target="_blank" rel="noopener" data-i18n="case1_more">Відкрити →</a>
+      </div>
+      <div class="case">
+        <div class="tag">animalpark</div>
+        <h3 data-i18n="case2_t">Контент для зоопарку</h3>
+        <p data-i18n="case2_d">Тексти для сайту контактного зоопарку в Києві: описи тварин і атракцій, новини, сторінки під пошук.</p>
+        <a class="more" href="https://animalpark.com.ua/" target="_blank" rel="noopener" data-i18n="case2_more">Відкрити →</a>
+      </div>
+      <div class="case">
+        <div class="tag">testsAnna</div>
+        <h3 data-i18n="case4_t">Освітній проєкт під ключ</h3>
+        <p data-i18n="case4_d">Лендинг + інтерактивні тести НМТ (HTML/JS) зі збором заявок і аналітикою. Текст, верстка, логіка — усе сам.</p>
+        <a class="more" href="https://gregory-ivd.github.io/testsAnna/" target="_blank" rel="noopener" data-i18n="case4_more">Відкрити →</a>
+      </div>
+      <div class="case">
+        <div class="tag">captain-droid</div>
+        <h3 data-i18n="case5_t">Контент для каталогу додатків</h3>
+        <p data-i18n="case5_d">Описи й матеріали для багатомовного каталогу Android-додатків та ігор — складне простими словами.</p>
+        <a class="more" href="https://captain-droid.com/" target="_blank" rel="noopener" data-i18n="case5_more">Відкрити →</a>
+      </div>
+      <div class="case">
+        <div class="tag">Чиста справа</div>
+        <h3 data-i18n="case6_t">SEO-просування</h3>
+        <p data-i18n="case6_d">Семантика й контент для клінінгової компанії в Києві: сторінки, що приводять клієнтів з пошуку.</p>
+        <a class="more" href="https://chystasprava.com/" target="_blank" rel="noopener" data-i18n="case6_more">Відкрити →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RULES -->
+<section id="rules">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-i18n="rules_title">Без ілюзій</h2></div>
+    <div class="rules">
+      <div class="rule"><span class="n">01</span><p data-i18n="rule1">Текст без сторінки — це півроботи. Тому віддаю готову сторінку, а не файл у Word.</p></div>
+      <div class="rule"><span class="n">02</span><p data-i18n="rule2">«Зробіть красиво» — не бриф. Поки не розберусь у продукті — не пишу.</p></div>
+      <div class="rule"><span class="n">03</span><p data-i18n="rule3">Приберіть з тексту прикметники. Щось лишилось? Отоді це працює.</p></div>
+      <div class="rule"><span class="n">04</span><p data-i18n="rule4">AI не вб'є копірайтера. Але копірайтер з AI вб'є того, хто без. Я вже з ним.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-i18n="about_title">Про мене</h2></div>
+    <div class="about">
+      <div class="avatar"><img src="photo.jpg" alt="Григорій Йвд" onerror="this.remove()"><span>ГЙ</span></div>
+      <div class="about-body">
+      <p data-i18n="about_p">Я — Григорій Йвд, копірайтер з Ужгорода. Мені 41. Почав 12 років тому з текстової біржі, потім — агенція, тепер пишу і збираю сторінки сам. Не з моди: просто набридло віддати хороший текст і дивитись, як його ліплять на криву сторінку. Тож роблю все сам — слово, сторінку, SEO. І досі вчуся (зараз — на соцпрацівника): у чужу тему вникаю так само глибоко, як у власне навчання.</p>
+      <ul>
+        <li><b data-i18n="ab1_t">12+ років досвіду</b><span data-i18n="ab1_d">Агенції, маркетплейси, бренди. Бачив усе — від SEO-потоку до продажних лендингів.</span></li>
+        <li><b data-i18n="ab2_t">Не перестаю вчитися</b><span data-i18n="ab2_d">Студент, постійно в новому матеріалі. Будь-яка тема — це лише ще один ресёрч.</span></li>
+        <li><b data-i18n="ab3_t">Повний цикл</b><span data-i18n="ab3_d">Текст + верстка + SEO + публікація. Один виконавець замість трьох.</span></li>
+      </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATH -->
+<section id="path">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-i18n="path_title">Від біржі до коду</h2><p data-i18n="path_sub">Один напрям крізь усі етапи — щоб слова працювали: добре написані, під пошук і на живій сторінці.</p></div>
+    <div class="path">
+      <div class="pstep"><div class="pnum">01</div><h3 data-i18n="p1_t">Біржі та фриланс</h3><p data-i18n="p1_d">Старт із копірайтингу на потоці. Навчився писати швидко й на будь-яку тему — і знаходити мову читача.</p></div>
+      <div class="parr">→</div>
+      <div class="pstep"><div class="pnum">02</div><h3 data-i18n="p2_t">Агенція</h3><p data-i18n="p2_d">Від «просто тексту» до SEO та стратегії: текст як частина маркетингу, що дає результат.</p></div>
+      <div class="parr">→</div>
+      <div class="pstep"><div class="pnum">03</div><h3 data-i18n="p3_t">AI + код</h3><p data-i18n="p3_d">Навчився сам збирати й публікувати сторінку (HTML, боти) і прискорювати рутину AI — щоб віддавати готовий результат, а не файл. Цей сайт — теж зроблений з AI.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-i18n="process_title">Як ми працюємо</h2></div>
+    <div class="steps">
+      <div class="step"><h3 data-i18n="st1_t">Бриф</h3><p data-i18n="st1_d">Коротка розмова: задача, аудиторія, ціль. 15 хвилин — і я розумію проєкт.</p></div>
+      <div class="step"><h3 data-i18n="st2_t">Дослідження</h3><p data-i18n="st2_d">Вникаю в продукт, конкурентів і ключові слова. Без цього текст — порожній.</p></div>
+      <div class="step"><h3 data-i18n="st3_t">Текст і сторінка</h3><p data-i18n="st3_d">Пишу, структурую, за потреби верстаю в готовий лендинг.</p></div>
+      <div class="step"><h3 data-i18n="st4_t">Правки й публікація</h3><p data-i18n="st4_d">Два раунди правок включені. Здаю готове до роботи — або одразу публікую.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-i18n="faq_title">Часті запитання</h2></div>
+    <div class="faq-list">
+      <details class="faq-item"><summary data-i18n="faq1_q">Скільки це коштує?</summary><p data-i18n="faq1_a">Залежить від типу й обсягу: текст, лендинг під ключ чи SEO. Напишіть задачу — дам оцінку й терміни того ж дня.</p></details>
+      <details class="faq-item"><summary data-i18n="faq2_q">Як швидко буде готово?</summary><p data-i18n="faq2_a">Невеликий текст — 1–2 дні. Лендинг під ключ — зазвичай 3–7 днів. Точні терміни — після короткого брифу.</p></details>
+      <details class="faq-item"><summary data-i18n="faq3_q">Ви працюєте з AI — що з якістю?</summary><p data-i18n="faq3_a">AI прискорює чернетку й рутину. Але фінал редагую, перевіряю факти й відповідаю за результат я — не машина.</p></details>
+      <details class="faq-item"><summary data-i18n="faq4_q">Якими мовами пишете?</summary><p data-i18n="faq4_a">Українською, російською та англійською — і копірайтинг, і SEO-тексти.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <h2 data-i18n="contact_title">Є проєкт? Пишіть без передмов.</h2>
+      <p data-i18n="contact_sub">Два речення про задачу — і я чесно скажу, берусь чи ні. Без «давайте зідзвонимось на годинку».</p>
+      <div class="cta-row">
+        <a class="btn tg" href="https://t.me/Gregory_ivd" target="_blank" rel="noopener" data-i18n="contact_tg">Написати в Telegram</a>
+        <a class="btn mail" href="mailto:apshanuivd@gmail.com" data-i18n="contact_mail">Написати на email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <span data-i18n="footer_text">Smart Attic · Григорій Йвд · копірайтинг, лендинги, SEO</span> · © <span id="year"></span>
+  </div>
+</footer>
+
+<script>
+/* ============== i18n ============== */
+const T = {
+  ua:{
+    title:"Smart Attic — копірайтинг, лендинги, SEO",
+    nav_cta:"Обговорити проєкт",
+    hero_kicker:"Копірайтинг без води",
+    hero_h1:"Більшість текстів — шум. Мої приносять заявки.",
+    hero_sub:"Не кидаю текст «у вакуум» — збираю сторінку цілком: копірайтинг, лендинг, SEO. Для українського бізнесу. 12 років, три мови, нуль зайвих слів.",
+    hero_cta:"Обговорити проєкт →",
+    hero_cta2:"Подивитись роботи",
+    stat1:"років досвіду", stat2:"мови: UA · RU · EN", stat3:"галузей",
+    services_title:"Що я роблю",
+    services_sub:"Повний цикл: від першого слова до сторінки, що приносить заявки. Не «красиво» — працює.",
+    svc1_t:"Копірайтинг", svc1_d:"Лендинги, сайти, продуктові описи, email-розсилки, статті. Тексти, які читають і після яких діють.",
+    svc2_t:"Лендинги під ключ", svc2_d:"Не лише текст — готова сторінка: структура, верстка, публікація (HTML / GitHub Pages). Здаю результат, а не файл у Word.",
+    svc3_t:"SEO", svc3_d:"Тексти під пошук: семантика, структура, заголовки. Щоб сторінку знаходили, а не лише гарно виглядала.",
+    svc4_t:"AI-процес", svc4_d:"Працюю з AI-інструментами — швидше й вигідніше без втрати якості. Машина чорнить, людина відповідає за результат.",
+    cases_title:"Вибрані роботи",
+    cases_sub:"Агенції, бренди й власні проєкти. Конкретні цифри та посилання — на запит.",
+    case1_t:"SEO-копірайтинг", case1_d:"Статті та посадкові сторінки для міжнародної digital-агенції: тексти під пошук і під конверсію.", case1_more:"Відкрити →",
+    case2_t:"Контент для зоопарку", case2_d:"Тексти для сайту контактного зоопарку в Києві: описи тварин і атракцій, новини, сторінки під пошук.", case2_more:"Відкрити →",    case4_t:"Освітній проєкт під ключ", case4_d:"Лендинг + інтерактивні тести НМТ (HTML/JS) зі збором заявок і аналітикою. Текст, верстка, логіка — усе сам.", case4_more:"Відкрити →",
+    case5_t:"Контент для каталогу додатків", case5_d:"Описи й матеріали для багатомовного каталогу Android-додатків та ігор — складне простими словами.", case5_more:"Відкрити →",
+    case6_t:"SEO-просування", case6_d:"Семантика й контент для клінінгової компанії в Києві: сторінки, що приводять клієнтів з пошуку.", case6_more:"Відкрити →",
+    about_title:"Про мене",
+    about_p:"Я — Григорій Йвд, копірайтер з Ужгорода. Мені 41. Почав 12 років тому з текстової біржі, потім — агенція, тепер пишу і збираю сторінки сам. Не з моди: просто набридло віддати хороший текст і дивитись, як його ліплять на криву сторінку. Тож роблю все сам — слово, сторінку, SEO. І досі вчуся (зараз — на соцпрацівника): у чужу тему вникаю так само глибоко, як у власне навчання.",
+    ab1_t:"12+ років досвіду", ab1_d:"Агенції, маркетплейси, бренди. Бачив усе — від SEO-потоку до продажних лендингів.",
+    ab2_t:"Не перестаю вчитися", ab2_d:"Студент, постійно в новому матеріалі. Будь-яка тема — це лише ще один ресёрч.",
+    ab3_t:"Повний цикл", ab3_d:"Текст + верстка + SEO + публікація. Один виконавець замість трьох.",
+    rules_title:"Без ілюзій",
+    rule1:"Текст без сторінки — це півроботи. Тому віддаю готову сторінку, а не файл у Word.",
+    rule2:"«Зробіть красиво» — не бриф. Поки не розберусь у продукті — не пишу.",
+    rule3:"Приберіть з тексту прикметники. Щось лишилось? Отоді це працює.",
+    rule4:"AI не вб'є копірайтера. Але копірайтер з AI вб'є того, хто без. Я вже з ним.",
+    path_title:"Від біржі до коду",
+    path_sub:"Один напрям крізь усі етапи — щоб слова працювали: добре написані, під пошук і на живій сторінці.",
+    p1_t:"Біржі та фриланс", p1_d:"Старт із копірайтингу на потоці. Навчився писати швидко й на будь-яку тему — і знаходити мову читача.",
+    p2_t:"Агенція", p2_d:"Від «просто тексту» до SEO та стратегії: текст як частина маркетингу, що дає результат.",
+    p3_t:"AI + код", p3_d:"Навчився сам збирати й публікувати сторінку (HTML, боти) і прискорювати рутину AI — щоб віддавати готовий результат, а не файл. Цей сайт — теж зроблений з AI.",
+    process_title:"Як ми працюємо",
+    st1_t:"Бриф", st1_d:"Коротка розмова: задача, аудиторія, ціль. 15 хвилин — і я розумію проєкт.",
+    st2_t:"Дослідження", st2_d:"Вникаю в продукт, конкурентів і ключові слова. Без цього текст — порожній.",
+    st3_t:"Текст і сторінка", st3_d:"Пишу, структурую, за потреби верстаю в готовий лендинг.",
+    st4_t:"Правки й публікація", st4_d:"Два раунди правок включені. Здаю готове до роботи — або одразу публікую.",
+    contact_title:"Є проєкт? Пишіть без передмов.",
+    contact_sub:"Два речення про задачу — і я чесно скажу, берусь чи ні. Без «давайте зідзвонимось на годинку».",
+    contact_tg:"Написати в Telegram", contact_mail:"Написати на email",
+    faq_title:"Часті запитання",
+    faq1_q:"Скільки це коштує?", faq1_a:"Залежить від типу й обсягу: текст, лендинг під ключ чи SEO. Напишіть задачу — дам оцінку й терміни того ж дня.",
+    faq2_q:"Як швидко буде готово?", faq2_a:"Невеликий текст — 1–2 дні. Лендинг під ключ — зазвичай 3–7 днів. Точні терміни — після короткого брифу.",
+    faq3_q:"Ви працюєте з AI — що з якістю?", faq3_a:"AI прискорює чернетку й рутину. Але фінал редагую, перевіряю факти й відповідаю за результат я — не машина.",
+    faq4_q:"Якими мовами пишете?", faq4_a:"Українською, російською та англійською — і копірайтинг, і SEO-тексти.",
+    footer_text:"Smart Attic · Григорій Йвд · копірайтинг, лендинги, SEO"
+  },
+  ru:{
+    title:"Smart Attic — копирайтинг, лендинги, SEO",
+    nav_cta:"Обсудить проект",
+    hero_kicker:"Копирайтинг без воды",
+    hero_h1:"Большинство текстов — шум. Мои приносят заявки.",
+    hero_sub:"Не бросаю текст «в вакуум» — собираю страницу целиком: копирайтинг, лендинг, SEO. Для русскоязычных клиентов (Украина и диаспора). 12 лет, три языка, ноль лишних слов.",
+    hero_cta:"Обсудить проект →",
+    hero_cta2:"Посмотреть работы",
+    stat1:"лет опыта", stat2:"языка: UA · RU · EN", stat3:"отраслей",
+    services_title:"Что я делаю",
+    services_sub:"Полный цикл: от первого слова до страницы, которая приносит заявки. Не «красиво» — работает.",
+    svc1_t:"Копирайтинг", svc1_d:"Лендинги, сайты, описания товаров, email-рассылки, статьи. Тексты, которые читают и после которых действуют.",
+    svc2_t:"Лендинги под ключ", svc2_d:"Не только текст — готовая страница: структура, вёрстка, публикация (HTML / GitHub Pages). Сдаю результат, а не файл в Word.",
+    svc3_t:"SEO", svc3_d:"Тексты под поиск: семантика, структура, заголовки. Чтобы страницу находили, а не только красиво смотрелась.",
+    svc4_t:"AI-процесс", svc4_d:"Работаю с AI-инструментами — быстрее и выгоднее без потери качества. Машина черновик, человек отвечает за результат.",
+    cases_title:"Избранные работы",
+    cases_sub:"Агентства, бренды и собственные проекты. Конкретные цифры и ссылки — по запросу.",
+    case1_t:"SEO-копирайтинг", case1_d:"Статьи и посадочные страницы для международного digital-агентства: тексты под поиск и под конверсию.", case1_more:"Открыть →",
+    case2_t:"Контент для зоопарка", case2_d:"Тексты для сайта контактного зоопарка в Киеве: описания животных и аттракционов, новости, страницы под поиск.", case2_more:"Открыть →",    case4_t:"Образовательный проект под ключ", case4_d:"Лендинг + интерактивные тесты НМТ (HTML/JS) со сбором заявок и аналитикой. Текст, вёрстка, логика — всё сам.", case4_more:"Открыть →",
+    case5_t:"Контент для каталога приложений", case5_d:"Описания и материалы для многоязычного каталога Android-приложений и игр — сложное простыми словами.", case5_more:"Открыть →",
+    case6_t:"SEO-продвижение", case6_d:"Семантика и контент для клининговой компании в Киеве: страницы, которые приводят клиентов из поиска.", case6_more:"Открыть →",
+    about_title:"Обо мне",
+    about_p:"Я — Григорий Йвд, копирайтер из Ужгорода. Мне 41. Начал 12 лет назад с текстовой биржи, потом — агентство, теперь пишу и собираю страницы сам. Не из моды: просто надоело отдать хороший текст и смотреть, как его лепят на кривую страницу. Поэтому делаю всё сам — слово, страницу, SEO. И до сих пор учусь (сейчас — на соцработника): в чужую тему вникаю так же глубоко, как в собственную учёбу.",
+    ab1_t:"12+ лет опыта", ab1_d:"Агентства, маркетплейсы, бренды. Видел всё — от SEO-потока до продающих лендингов.",
+    ab2_t:"Не перестаю учиться", ab2_d:"Студент, постоянно в новом материале. Любая тема — это просто ещё один ресёрч.",
+    ab3_t:"Полный цикл", ab3_d:"Текст + вёрстка + SEO + публикация. Один исполнитель вместо трёх.",
+    rules_title:"Без иллюзий",
+    rule1:"Текст без страницы — это полработы. Поэтому отдаю готовую страницу, а не файл в Word.",
+    rule2:"«Сделайте красиво» — не бриф. Пока не разберусь в продукте — не пишу.",
+    rule3:"Уберите из текста прилагательные. Что-то осталось? Вот тогда он работает.",
+    rule4:"AI не убьёт копирайтера. Но копирайтер с AI убьёт того, кто без. Я уже с ним.",
+    path_title:"От биржи до кода",
+    path_sub:"Одно направление через все этапы — чтобы слова работали: хорошо написаны, под поиск и на живой странице.",
+    p1_t:"Биржи и фриланс", p1_d:"Старт с копирайтинга на потоке. Научился писать быстро и на любую тему — и находить язык читателя.",
+    p2_t:"Агентство", p2_d:"От «просто текста» к SEO и стратегии: текст как часть маркетинга, который даёт результат.",
+    p3_t:"AI + код", p3_d:"Научился сам собирать и публиковать страницу (HTML, боты) и ускорять рутину с AI — чтобы отдавать готовый результат, а не файл. Этот сайт — тоже сделан с AI.",
+    process_title:"Как мы работаем",
+    st1_t:"Бриф", st1_d:"Короткий разговор: задача, аудитория, цель. 15 минут — и я понимаю проект.",
+    st2_t:"Исследование", st2_d:"Вникаю в продукт, конкурентов и ключевые слова. Без этого текст пустой.",
+    st3_t:"Текст и страница", st3_d:"Пишу, структурирую, при необходимости верстаю в готовый лендинг.",
+    st4_t:"Правки и публикация", st4_d:"Два раунда правок включены. Сдаю готовое к работе — или сразу публикую.",
+    contact_title:"Есть проект? Пишите без предисловий.",
+    contact_sub:"Два предложения о задаче — и я честно скажу, берусь или нет. Без «давайте созвонимся на часик».",
+    contact_tg:"Написать в Telegram", contact_mail:"Написать на email",
+    faq_title:"Частые вопросы",
+    faq1_q:"Сколько это стоит?", faq1_a:"Зависит от типа и объёма: текст, лендинг под ключ или SEO. Напишите задачу — дам оценку и сроки в тот же день.",
+    faq2_q:"Как быстро будет готово?", faq2_a:"Небольшой текст — 1–2 дня. Лендинг под ключ — обычно 3–7 дней. Точные сроки — после короткого брифа.",
+    faq3_q:"Вы работаете с AI — что с качеством?", faq3_a:"AI ускоряет черновик и рутину. Но финал редактирую, проверяю факты и отвечаю за результат я — не машина.",
+    faq4_q:"На каких языках пишете?", faq4_a:"На украинском, русском и английском — и копирайтинг, и SEO-тексты.",
+    footer_text:"Smart Attic · Григорий Йвд · копирайтинг, лендинги, SEO"
+  },
+  en:{
+    title:"Smart Attic — copywriting, landing pages, SEO",
+    nav_cta:"Start a project",
+    hero_kicker:"No-fluff copywriting",
+    hero_h1:"Most copy is noise. Mine brings leads.",
+    hero_sub:"I don't hand text into the void — I build the whole page: landing pages, SEO content and UA/RU→EN localization. 12+ years, remote-friendly, zero filler.",
+    hero_cta:"Start a project →",
+    hero_cta2:"See the work",
+    stat1:"years of experience", stat2:"languages: UA · RU · EN", stat3:"industries",
+    services_title:"What I do",
+    services_sub:"Full cycle, remote: from the first word to a page that brings in leads — built to work, not to look pretty.",
+    svc1_t:"Copywriting", svc1_d:"Landing pages, websites, product descriptions, email, articles. Text people read — and act on.",
+    svc2_t:"Landing pages", svc2_d:"Not just copy — a finished page: structure, build, publishing (HTML / GitHub Pages). I deliver a result, not a Word file.",
+    svc3_t:"SEO", svc3_d:"Search-friendly copy: semantics, structure, headings. So the page gets found, not just looks good.",
+    svc4_t:"AI process", svc4_d:"I work with AI tools — faster and cheaper without losing quality. The machine drafts, the human owns the result.",
+    cases_title:"Selected work",
+    cases_sub:"Work for international agencies, brands and my own projects. Numbers and links on request.",
+    case1_t:"SEO copywriting", case1_d:"Articles and landing pages for an international digital agency: copy built for search and conversion.", case1_more:"Open →",
+    case2_t:"Content for a petting zoo", case2_d:"Website copy for a contact zoo in Kyiv: animal and attraction descriptions, news, search-friendly pages.", case2_more:"Open →",    case4_t:"Education project, end-to-end", case4_d:"Landing page + interactive exam tests (HTML/JS) with lead capture and analytics. Copy, build, logic — all mine.", case4_more:"Open →",
+    case5_t:"App-catalog content", case5_d:"Copy and material for a multilingual catalog of Android apps and games — complex made simple.", case5_more:"Open →",
+    case6_t:"SEO promotion", case6_d:"Semantics and content for a Kyiv cleaning company: pages that bring clients from search.", case6_more:"Open →",
+    about_title:"About me",
+    about_p:"I'm Gregory Ivd, a Ukraine-based copywriter (Uzhhorod), 41. I started 12 years ago on content mills, then an agency, and now I write and build pages myself. Not for the trend — I just got tired of handing over good text and watching it land on a broken page. So I do it all: the words, the page, the SEO. And I'm still studying (social work) — I dig into a client's field as deeply as into my own coursework.",
+    ab1_t:"12+ years of experience", ab1_d:"Agencies, marketplaces, brands. I've seen it all — from SEO at scale to sales landing pages.",
+    ab2_t:"Always learning", ab2_d:"A student, always in new material. Any topic is just one more round of research.",
+    ab3_t:"Full cycle", ab3_d:"Copy + build + SEO + publishing. One person instead of three.",
+    rules_title:"No illusions",
+    rule1:"Text without a page is half the job. So I deliver a finished page, not a Word file.",
+    rule2:"“Make it nice” is not a brief. I don't write until I understand the product.",
+    rule3:"Strip the adjectives from your copy. Anything left? That's the part that works.",
+    rule4:"AI won't replace copywriters. But a copywriter with AI will replace those without. I'm already there.",
+    path_title:"From content mills to code",
+    path_sub:"One thread through every stage — making words work: well-written, search-ready, and live on a real page.",
+    p1_t:"Freelance & content mills", p1_d:"Started with high-volume copywriting. Learned to write fast on any topic — and to find the reader's language.",
+    p2_t:"Agency", p2_d:"From 'just text' to SEO and strategy: copy as part of a marketing system that delivers results.",
+    p3_t:"AI + code", p3_d:"Learned to build and publish the page myself (HTML, bots) and to speed up routine with AI — so I deliver a finished result, not a file. This very site was built with AI, too.",
+    process_title:"How we work",
+    st1_t:"Brief", st1_d:"A short chat: the task, the audience, the goal. 15 minutes and I get the project.",
+    st2_t:"Research", st2_d:"I dig into the product, competitors and keywords. Without it, copy is empty.",
+    st3_t:"Copy & page", st3_d:"I write, structure and — if needed — build it into a finished landing page.",
+    st4_t:"Edits & launch", st4_d:"Two rounds of edits included. Delivered ready to use — or published right away.",
+    contact_title:"Got a project? Skip the intro.",
+    contact_sub:"Two lines about the task and I'll tell you honestly if I can help — no “let's hop on a quick call” first.",
+    contact_tg:"Message on Telegram", contact_mail:"Send an email",
+    faq_title:"FAQ",
+    faq1_q:"How much does it cost?", faq1_a:"It depends on the type and scope: copy, a full landing page, or SEO. Send me the task — I'll give an estimate and a timeline the same day.",
+    faq2_q:"How fast is it done?", faq2_a:"A short text — 1–2 days. A full landing page — usually 3–7 days. Exact timing after a short brief.",
+    faq3_q:"You use AI — what about quality?", faq3_a:"AI speeds up drafts and routine. But I edit the final, check the facts and own the result — not the machine.",
+    faq4_q:"Which languages do you write in?", faq4_a:"Ukrainian, Russian and English — both copywriting and SEO texts.",
+    footer_text:"Smart Attic · Gregory Ivd · copywriting, landing pages, SEO"
+  }
+};
+const HTML_LANG = { ua:"uk", ru:"ru", en:"en" };
+
+function applyLang(lang){
+  const dict = T[lang] || T.ua;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const v = dict[el.dataset.i18n];
+    if(v != null) el.textContent = v;
+  });
+  document.title = dict.title;
+  document.documentElement.lang = HTML_LANG[lang] || "uk";
+  document.querySelectorAll('#langs button').forEach(b=>b.classList.toggle('on', b.dataset.lang===lang));
+  try{ localStorage.setItem('smartattic.lang', lang); }catch(e){}
+}
+
+document.getElementById('langs').addEventListener('click', e=>{
+  const b = e.target.closest('button[data-lang]');
+  if(b) applyLang(b.dataset.lang);
+});
+
+(function init(){
+  let lang = 'ua';
+  try{
+    const saved = localStorage.getItem('smartattic.lang');
+    if(saved && T[saved]) lang = saved;
+    else {
+      const n = (navigator.language||'').slice(0,2).toLowerCase();
+      if(n==='ru') lang='ru'; else if(n==='en') lang='en'; else lang='ua';
+    }
+  }catch(e){}
+  applyLang(lang);
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+
+/* ===== Motion: header shadow + scroll-reveal + stat counters ===== */
+(function(){
+  const hdr = document.querySelector('header.site');
+  const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  addEventListener('scroll', onScroll, {passive:true});
+
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // light stagger inside groups
+  document.querySelectorAll('.grid, .cases, .steps, .path, .rules, .faq-list').forEach(g=>{
+    Array.from(g.children).forEach((c,i)=>{ c.style.transitionDelay = ((i % 3) * 70) + 'ms'; });
+  });
+
+  const targets = document.querySelectorAll('.sec-head, .card, .case, .step, .pstep, .rule, .faq-item, .about, .contact, .stats');
+  targets.forEach(el => el.classList.add('reveal'));
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  targets.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

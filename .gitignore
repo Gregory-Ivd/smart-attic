@@ -1,0 +1,7 @@
+.claude/
+.playwright-mcp/
+.DS_Store
+Thumbs.db
+# Исходники аватара (на сайт идёт только photo.jpg)
+Лого*
+Логи*
