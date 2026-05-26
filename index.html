@@ -60,9 +60,9 @@
   .hero-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow-sm)}
   .hero-card-tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
   .hero-card-head{display:flex;align-items:center;gap:14px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
-  .hero-avatar{flex:0 0 60px;width:60px;height:60px;border-radius:50%;overflow:hidden;background:var(--accent-soft);display:grid;place-items:center;position:relative}
+  .hero-avatar{flex:0 0 92px;width:92px;height:92px;border-radius:50%;overflow:hidden;background:var(--accent-soft);display:grid;place-items:center;position:relative}
   .hero-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .hero-avatar span{font-size:21px;font-weight:800;color:var(--accent)}
+  .hero-avatar span{font-size:30px;font-weight:800;color:var(--accent)}
   .hero-id{display:flex;flex-direction:column;min-width:0}
   .hero-id strong{font-size:17px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
   .hero-id span{font-size:13px;color:var(--muted)}
@@ -200,7 +200,7 @@
     <div class="hero-main">
       <span class="kicker" data-i18n="hero_kicker">Копірайтинг + лендинг + SEO</span>
       <h1><span class="ln" data-i18n="hero_h1a">Більшість текстів — шум.</span> <span class="ln" data-i18n="hero_h1b">Мої приносять заявки.</span></h1>
-      <p class="lead" data-i18n="hero_sub">Не віддаю голий текст — збираю сторінку цілком: копірайтинг, лендинг, SEO. 12+ років, три мови, нуль зайвих слів.</p>
+      <p class="lead" data-i18n="hero_sub">Не віддаю голий текст — збираю сторінку цілком: копірайтинг, лендинг, SEO. Нуль зайвих слів.</p>
       <div class="cta-row">
         <a class="btn" href="https://t.me/Gregory_ivd" target="_blank" rel="noopener" data-i18n="hero_cta">Обговорити проєкт — 15 хв →</a>
         <a class="btn ghost" href="#cases" data-i18n="hero_cta2">Подивитись роботи</a>
@@ -211,7 +211,7 @@
         <div class="hero-avatar"><img src="photo.jpg" alt="Григорій Йвд" onerror="this.remove()"><span>ГЙ</span></div>
         <div class="hero-id">
           <strong data-i18n="card_name">Григорій Йвд</strong>
-          <span data-i18n="card_role">копірайтер · 12+ років</span>
+          <span data-i18n="card_role">копірайтер · Ужгород</span>
         </div>
       </div>
       <div class="stats-grid">
@@ -418,10 +418,10 @@ const T = {
     nav_cta:"Обговорити проєкт",
     hero_kicker:"Копірайтинг + лендинг + SEO",
     hero_h1a:"Більшість текстів — шум.", hero_h1b:"Мої приносять заявки.",
-    hero_sub:"Не віддаю голий текст — збираю сторінку цілком: копірайтинг, лендинг, SEO. 12+ років, три мови, нуль зайвих слів.",
+    hero_sub:"Не віддаю голий текст — збираю сторінку цілком: копірайтинг, лендинг, SEO. Нуль зайвих слів.",
     hero_cta:"Обговорити проєкт — 15 хв →",
     hero_cta2:"Подивитись роботи",
-    card_tag:"Коротко про головне", card_name:"Григорій Йвд", card_role:"копірайтер · 12+ років",
+    card_tag:"Коротко про головне", card_name:"Григорій Йвд", card_role:"копірайтер · Ужгород",
     stat1:"років досвіду", stat2:"мови: UA · RU · EN", stat3:"галузей", stat4:"виконавець замість трьох",
     avail:"Відкритий для нових проєктів",
     pain_title:"Ваш сайт читають. Але чи купують після нього?",
@@ -479,10 +479,10 @@ const T = {
     nav_cta:"Обсудить проект",
     hero_kicker:"Копирайтинг + лендинг + SEO",
     hero_h1a:"Большинство текстов — шум.", hero_h1b:"Мои приносят заявки.",
-    hero_sub:"Не отдаю голый текст — собираю страницу целиком: копирайтинг, лендинг, SEO. Для русскоязычных клиентов (Украина и диаспора). 12+ лет, три языка, ноль лишних слов.",
+    hero_sub:"Не отдаю голый текст — собираю страницу целиком: копирайтинг, лендинг, SEO. Для русскоязычных клиентов (Украина и диаспора). Ноль лишних слов.",
     hero_cta:"Обсудить проект — 15 мин →",
     hero_cta2:"Посмотреть работы",
-    card_tag:"Коротко о главном", card_name:"Григорий Йвд", card_role:"копирайтер · 12+ лет",
+    card_tag:"Коротко о главном", card_name:"Григорий Йвд", card_role:"копирайтер · Ужгород",
     stat1:"лет опыта", stat2:"языка: UA · RU · EN", stat3:"отраслей", stat4:"исполнитель вместо троих",
     avail:"Открыт для новых проектов",
     pain_title:"Ваш сайт читают. Но покупают ли после него?",
@@ -540,10 +540,10 @@ const T = {
     nav_cta:"Start a project",
     hero_kicker:"Copywriting + landing + SEO",
     hero_h1a:"Most copy is noise.", hero_h1b:"Mine brings leads.",
-    hero_sub:"I don't hand over bare text — I build the whole page: landing pages, SEO content and UA/RU→EN localization. 12+ years, remote-friendly, zero filler.",
+    hero_sub:"I don't hand over bare text — I build the whole page: landing pages, SEO content and UA/RU→EN localization. Remote-friendly, zero filler.",
     hero_cta:"Start a project — 15 min →",
     hero_cta2:"See the work",
-    card_tag:"At a glance", card_name:"Gregory Ivd", card_role:"copywriter · 12+ years",
+    card_tag:"At a glance", card_name:"Gregory Ivd", card_role:"copywriter · Uzhhorod",
     stat1:"years of experience", stat2:"languages: UA · RU · EN", stat3:"industries", stat4:"person, not three",
     avail:"Open to new projects",
     pain_title:"Your site gets read. But do they buy after it?",
