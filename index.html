@@ -166,6 +166,21 @@
   .contact .btn.mail{background:transparent;border:1px solid rgba(255,255,255,.45);color:#fff;box-shadow:none}
   @media(max-width:640px){.contact{padding:34px 22px}.contact h2{font-size:26px}}
 
+  /* Callback form (inside contact block) */
+  .cb-lead{color:#cfe7dd;font-size:15px;text-align:center;margin:24px 0 12px}
+  .cb-form{max-width:520px;margin:0 auto;text-align:left}
+  .cb-row{display:flex;gap:10px}
+  .cb-row input{flex:1;min-width:0}
+  .cb-form input{width:100%;background:rgba(255,255,255,.96);border:1px solid rgba(255,255,255,.5);border-radius:10px;padding:12px 14px;font:inherit;font-size:15px;color:var(--ink);margin-bottom:10px;-webkit-appearance:none}
+  .cb-form input::placeholder{color:#7c867f}
+  .cb-form input:focus{outline:none;border-color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
+  .cb-submit{width:100%;justify-content:center;background:#fff;color:#0a5f49}
+  .cb-submit:disabled{opacity:.6;cursor:default}
+  .cb-status{min-height:20px;margin:12px 0 0;font-size:14px;text-align:center;color:#cfe7dd}
+  .cb-status.ok{color:#bdf0d8;font-weight:700}
+  .cb-status.err{color:#ffd9d2;font-weight:700}
+  @media(max-width:560px){.cb-row{display:block}}
+
   /* FAQ */
   .faq-list{display:grid;gap:12px}
   .faq-item{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:2px 22px;box-shadow:var(--shadow-sm)}
@@ -421,6 +436,16 @@
         <a class="btn tg" href="https://t.me/Gregory_ivd" target="_blank" rel="noopener" data-i18n="contact_tg">Написати в Telegram</a>
         <a class="btn mail" href="mailto:apshanuivd@gmail.com" data-i18n="contact_mail">Написати на email</a>
       </div>
+      <p class="cb-lead" data-i18n="cb_lead">Або залиште номер — передзвоню.</p>
+      <form class="cb-form" id="callbackForm" novalidate>
+        <div class="cb-row">
+          <input type="text" name="name" data-i18n-ph="cb_name" placeholder="Ім'я" autocomplete="name" required>
+          <input type="tel" name="phone" data-i18n-ph="cb_phone" placeholder="Телефон" autocomplete="tel" required>
+        </div>
+        <input type="text" name="note" data-i18n-ph="cb_note" placeholder="Коротко про задачу (необов'язково)" autocomplete="off">
+        <button type="submit" class="btn cb-submit" data-i18n="cb_btn">Замовити дзвінок</button>
+        <p class="cb-status" id="cbStatus" aria-live="polite"></p>
+      </form>
     </div>
   </div>
 </section>
@@ -492,6 +517,10 @@ const T = {
     contact_title:"Є проєкт? Пишіть без передмов.",
     contact_sub:"Два речення про задачу — і я чесно скажу, берусь чи ні. Без «давайте зідзвонимось на годинку».",
     contact_tg:"Написати в Telegram", contact_mail:"Написати на email",
+    cb_lead:"Або залиште номер — передзвоню.",
+    cb_name:"Ім'я", cb_phone:"Телефон", cb_note:"Коротко про задачу (необов'язково)",
+    cb_btn:"Замовити дзвінок",
+    cb_sending:"Надсилаю…", cb_ok:"Дякую! Зв'яжуся найближчим часом.", cb_err:"Не вдалося надіслати. Напишіть у Telegram.", cb_err_fill:"Впишіть ім'я і телефон.",
     faq_title:"Часті запитання",
     faq1_q:"Скільки це коштує?", faq1_a:"Залежить від типу й обсягу: текст, лендинг під ключ чи SEO. Напишіть задачу — дам оцінку й терміни того ж дня.",
     faq2_q:"Як швидко буде готово?", faq2_a:"Невеликий текст — 1–2 дні. Лендинг під ключ — зазвичай 3–7 днів. Точні терміни — після короткого брифу.",
@@ -557,6 +586,10 @@ const T = {
     contact_title:"Есть проект? Пишите без предисловий.",
     contact_sub:"Два предложения о задаче — и я честно скажу, берусь или нет. Без «давайте созвонимся на часик».",
     contact_tg:"Написать в Telegram", contact_mail:"Написать на email",
+    cb_lead:"Или оставьте номер — перезвоню.",
+    cb_name:"Имя", cb_phone:"Телефон", cb_note:"Коротко о задаче (необязательно)",
+    cb_btn:"Заказать звонок",
+    cb_sending:"Отправляю…", cb_ok:"Спасибо! Свяжусь в ближайшее время.", cb_err:"Не удалось отправить. Напишите в Telegram.", cb_err_fill:"Впишите имя и телефон.",
     faq_title:"Частые вопросы",
     faq1_q:"Сколько это стоит?", faq1_a:"Зависит от типа и объёма: текст, лендинг под ключ или SEO. Напишите задачу — дам оценку и сроки в тот же день.",
     faq2_q:"Как быстро будет готово?", faq2_a:"Небольшой текст — 1–2 дня. Лендинг под ключ — обычно 3–7 дней. Точные сроки — после короткого брифа.",
@@ -622,6 +655,10 @@ const T = {
     contact_title:"Got a project? Skip the intro.",
     contact_sub:"Two lines about the task and I'll tell you honestly if I can help — no “let's hop on a quick call” first.",
     contact_tg:"Message on Telegram", contact_mail:"Send an email",
+    cb_lead:"Or leave your number — I'll call back.",
+    cb_name:"Name", cb_phone:"Phone", cb_note:"Briefly about the task (optional)",
+    cb_btn:"Request a call",
+    cb_sending:"Sending…", cb_ok:"Thanks! I'll be in touch shortly.", cb_err:"Couldn't send. Please message me on Telegram.", cb_err_fill:"Please enter your name and phone.",
     faq_title:"FAQ",
     faq1_q:"How much does it cost?", faq1_a:"It depends on the type and scope: copy, a full landing page, or SEO. Send me the task — I'll give an estimate and a timeline the same day.",
     faq2_q:"How fast is it done?", faq2_a:"A short text — 1–2 days. A full landing page — usually 3–7 days. Exact timing after a short brief.",
@@ -638,6 +675,10 @@ function applyLang(lang){
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const v = dict[el.dataset.i18n];
     if(v != null) el.textContent = v;
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const v = dict[el.dataset.i18nPh];
+    if(v != null) el.placeholder = v;
   });
   document.title = dict.title;
   document.documentElement.lang = HTML_LANG[lang] || "uk";
@@ -690,6 +731,44 @@ document.getElementById('langs').addEventListener('click', e=>{
     });
   }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
   targets.forEach(el => io.observe(el));
+})();
+
+/* ===== Callback form -> Telegram (Apps Script relay) ===== */
+(function(){
+  var form = document.getElementById('callbackForm');
+  if(!form) return;
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbwDa6R5vr59E6bviLAQ-fiPfaALTsrX-4XBIp6ZDgJ6HKVirw0ZaCUzkaHCSjLm6TVV/exec';
+  var statusEl = document.getElementById('cbStatus');
+  var btn = form.querySelector('.cb-submit');
+  function curLang(){ var b = document.querySelector('#langs button.on'); return (b && b.dataset.lang) || 'ua'; }
+  function tr(k){ var d = T[curLang()] || T.ua; return d[k] || (T.ua && T.ua[k]) || ''; }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name  = (form.querySelector('[name="name"]').value  || '').trim();
+    var phone = (form.querySelector('[name="phone"]').value || '').trim();
+    var noteEl = form.querySelector('[name="note"]');
+    var note = noteEl ? (noteEl.value || '').trim() : '';
+    if(!name || phone.replace(/\D/g,'').length < 5){
+      statusEl.textContent = tr('cb_err_fill');
+      statusEl.className = 'cb-status err';
+      return;
+    }
+    btn.disabled = true;
+    statusEl.className = 'cb-status';
+    statusEl.textContent = tr('cb_sending');
+    fetch(ENDPOINT, {
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body: JSON.stringify({ name:name, phone:phone, note:note })
+    }).then(function(){
+      form.reset();
+      statusEl.textContent = tr('cb_ok');
+      statusEl.className = 'cb-status ok';
+    }).catch(function(){
+      statusEl.textContent = tr('cb_err');
+      statusEl.className = 'cb-status err';
+    }).finally(function(){ btn.disabled = false; });
+  });
 })();
 </script>
 </body>
