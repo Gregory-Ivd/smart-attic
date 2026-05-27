@@ -56,25 +56,34 @@
   .hero p.lead{font-size:22px;color:var(--muted);max-width:60ch;margin:20px 0 30px}
   .hero .cta-row{display:flex;gap:12px;flex-wrap:wrap}
   /* Hero two-column + stat card (adapted from concept-v2) */
-  .hero-grid{display:grid;grid-template-columns:1fr 330px;gap:44px;align-items:center}
+  .hero-grid{display:grid;grid-template-columns:1fr 360px;gap:44px;align-items:center}
   .hero-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow-sm)}
   .hero-card-tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
-  .hero-card-head{display:flex;align-items:center;gap:14px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
-  .hero-avatar{flex:0 0 92px;width:92px;height:92px;border-radius:50%;overflow:hidden;background:var(--accent-soft);display:grid;place-items:center;position:relative}
+  .hero-card-head{display:flex;align-items:center;gap:16px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+  .hero-avatar{flex:0 0 115px;width:115px;height:115px;border-radius:50%;overflow:hidden;background:var(--accent-soft);display:grid;place-items:center;position:relative}
   .hero-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .hero-avatar span{font-size:30px;font-weight:800;color:var(--accent)}
+  .hero-avatar span{font-size:38px;font-weight:800;color:var(--accent)}
   .hero-id{display:flex;flex-direction:column;min-width:0}
-  .hero-id strong{font-size:17px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
-  .hero-id span{font-size:13px;color:var(--muted)}
-  .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .hstat{background:var(--bg);border-radius:12px;padding:16px 14px;text-align:center}
-  .hstat b{display:block;font-size:30px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.02em;margin-bottom:5px}
-  .hstat span{font-size:13px;color:var(--muted);line-height:1.35}
+  .hero-id strong{font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .hero-id span{font-size:14px;color:var(--muted)}
+  .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;grid-auto-rows:1fr}
+  .hstat{background:var(--bg);border-radius:12px;padding:16px 12px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+  .hstat b{display:block;font-size:30px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.02em;margin-bottom:6px}
+  .hstat span{font-size:14px;color:#3f4a45;line-height:1.3}
   .availability{margin-top:16px;display:flex;align-items:center;gap:9px;font-size:14px;color:var(--muted)}
   .availability .dot{width:9px;height:9px;border-radius:50%;background:#1d9e75;flex:0 0 auto;animation:pulse 2s infinite}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.3)}}
   @media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:30px}}
   @media(max-width:640px){.hero h1{font-size:38px}.hero p.lead{font-size:18px}.hero{padding:48px 0 40px}}
+
+  /* Attic / why the name */
+  #attic{padding:46px 0 8px}
+  .attic-card{max-width:720px;margin:0 auto;text-align:center;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:40px 38px;box-shadow:var(--shadow-sm)}
+  .attic-mark{font-size:30px;color:var(--accent);line-height:1;margin-bottom:12px}
+  .attic-card h2{font-size:26px;font-weight:800;letter-spacing:-.02em;margin-bottom:18px}
+  .attic-prose{font-family:Georgia,"Times New Roman",serif;font-size:20px;line-height:1.7;color:var(--ink);max-width:58ch;margin:0 auto 14px}
+  .attic-punch{font-size:18px;font-weight:700;color:var(--accent);max-width:52ch;margin:18px auto 0}
+  @media(max-width:640px){.attic-card{padding:28px 22px}.attic-prose{font-size:18px}}
 
   section{padding:56px 0}
   .sec-head{margin-bottom:32px}
@@ -211,7 +220,7 @@
         <div class="hero-avatar"><img src="photo.jpg" alt="Григорій Йвд" onerror="this.remove()"><span>ГЙ</span></div>
         <div class="hero-id">
           <strong data-i18n="card_name">Григорій Йвд</strong>
-          <span data-i18n="card_role">копірайтер · Ужгород</span>
+          <span data-i18n="card_role">копірайтер повного циклу</span>
         </div>
       </div>
       <div class="stats-grid">
@@ -224,6 +233,19 @@
     </aside>
   </div>
 </div>
+
+<!-- ATTIC / WHY THE NAME -->
+<section id="attic">
+  <div class="wrap">
+    <div class="attic-card">
+      <div class="attic-mark">✒</div>
+      <h2 data-i18n="attic_title">Чому Smart Attic</h2>
+      <p class="attic-prose" data-i18n="attic_p1">Колись романи писали на горищах. Андерсен у 22 винаймав комірчину під дахом Копенгагена — перо, свічка і вид на дахи, що потім ожив у його казках.</p>
+      <p class="attic-prose" data-i18n="attic_p2">Я пишу не казки, а сторінки, що приносять заявки. Але суть не змінилась: горище — це місце, де народжується історія.</p>
+      <p class="attic-punch" data-i18n="attic_p3">Smart Attic — моє горище. Тільки замість свічки тут копірайтинг, лендинг і SEO.</p>
+    </div>
+  </div>
+</section>
 
 <!-- PAIN -->
 <section id="pain">
@@ -338,7 +360,7 @@
     <div class="about">
       <div class="avatar"><img src="photo.jpg" alt="Григорій Йвд" onerror="this.remove()"><span>ГЙ</span></div>
       <div class="about-body">
-      <p data-i18n="about_p">Я — Григорій Йвд, копірайтер з Ужгорода. Мені 41, у копірайтингу — понад 12 років. Написаного — на три томи «Людини, що сміється» Гюго. Я рахував. Почав із текстової біржі, потім агенція, тепер пишу і збираю сторінки сам. Не з моди: просто набридло віддати хороший текст і дивитись, як його ліплять на криву сторінку. Тож роблю все сам — слово, сторінку, SEO. І досі вчуся (зараз — на соцпрацівника): у чужу тему вникаю так само глибоко, як у власне навчання.</p>
+      <p data-i18n="about_p">Я — Григорій Йвд, копірайтер з Ужгорода. Мені 41, понад 12 років у копірайтингу — написаного на три томи «Людини, що сміється» Гюго (я рахував). Біржа → агенція → тепер пишу і збираю сторінки сам: набридло віддавати хороший текст і дивитися, як його ліплять на криву сторінку. Тож тримаю весь цикл — слово, сторінку, SEO. Перш ніж писати, розбираю тему до кореня: без ресерчу за текст не беруся.</p>
       <ul>
         <li><b data-i18n="ab1_t">12+ років досвіду</b><span data-i18n="ab1_d">Агенції, маркетплейси, бренди. Бачив усе — від SEO-потоку до продажних лендингів.</span></li>
         <li><b data-i18n="ab2_t">Не перестаю вчитися</b><span data-i18n="ab2_d">Студент, постійно в новому матеріалі. Будь-яка тема — це лише ще один ресёрч.</span></li>
@@ -421,9 +443,13 @@ const T = {
     hero_sub:"Не віддаю голий текст — збираю сторінку цілком: копірайтинг, лендинг, SEO. Нуль зайвих слів.",
     hero_cta:"Обговорити проєкт — 15 хв →",
     hero_cta2:"Подивитись роботи",
-    card_tag:"Коротко про головне", card_name:"Григорій Йвд", card_role:"копірайтер · Ужгород",
+    card_tag:"Коротко про головне", card_name:"Григорій Йвд", card_role:"копірайтер повного циклу",
     stat1:"років досвіду", stat2:"мови: UA · RU · EN", stat3:"галузей", stat4:"виконавець замість трьох",
     avail:"Відкритий для нових проєктів",
+    attic_title:"Чому Smart Attic",
+    attic_p1:"Колись романи писали на горищах. Андерсен у 22 винаймав комірчину під дахом Копенгагена — перо, свічка і вид на дахи, що потім ожив у його казках.",
+    attic_p2:"Я пишу не казки, а сторінки, що приносять заявки. Але суть не змінилась: горище — це місце, де народжується історія.",
+    attic_p3:"Smart Attic — моє горище. Тільки замість свічки тут копірайтинг, лендинг і SEO.",
     pain_title:"Ваш сайт читають. Але чи купують після нього?",
     pain_sub:"Найчастіше — ні. Ось чому — і що я з цим роблю.",
     pain_was:"Було",
@@ -444,7 +470,7 @@ const T = {
     case5_t:"Контент для каталогу додатків", case5_d:"Описи й матеріали для багатомовного каталогу Android-додатків та ігор — складне простими словами.", case5_more:"Відкрити →",
     case6_t:"SEO-просування", case6_d:"Семантика й контент для клінінгової компанії в Києві: сторінки, що приводять клієнтів з пошуку.", case6_more:"Відкрити →",
     about_title:"Про мене",
-    about_p:"Я — Григорій Йвд, копірайтер з Ужгорода. Мені 41, у копірайтингу — понад 12 років. Написаного — на три томи «Людини, що сміється» Гюго. Я рахував. Почав із текстової біржі, потім агенція, тепер пишу і збираю сторінки сам. Не з моди: просто набридло віддати хороший текст і дивитись, як його ліплять на криву сторінку. Тож роблю все сам — слово, сторінку, SEO. І досі вчуся (зараз — на соцпрацівника): у чужу тему вникаю так само глибоко, як у власне навчання.",
+    about_p:"Я — Григорій Йвд, копірайтер з Ужгорода. Мені 41, понад 12 років у копірайтингу — написаного на три томи «Людини, що сміється» Гюго (я рахував). Біржа → агенція → тепер пишу і збираю сторінки сам: набридло віддавати хороший текст і дивитися, як його ліплять на криву сторінку. Тож тримаю весь цикл — слово, сторінку, SEO. Перш ніж писати, розбираю тему до кореня: без ресерчу за текст не беруся.",
     ab1_t:"12+ років досвіду", ab1_d:"Агенції, маркетплейси, бренди. Бачив усе — від SEO-потоку до продажних лендингів.",
     ab2_t:"Не перестаю вчитися", ab2_d:"Студент, постійно в новому матеріалі. Будь-яка тема — це лише ще один ресёрч.",
     ab3_t:"Повний цикл", ab3_d:"Текст + верстка + SEO + публікація. Один виконавець замість трьох.",
@@ -482,9 +508,13 @@ const T = {
     hero_sub:"Не отдаю голый текст — собираю страницу целиком: копирайтинг, лендинг, SEO. Для русскоязычных клиентов (Украина и диаспора). Ноль лишних слов.",
     hero_cta:"Обсудить проект — 15 мин →",
     hero_cta2:"Посмотреть работы",
-    card_tag:"Коротко о главном", card_name:"Григорий Йвд", card_role:"копирайтер · Ужгород",
+    card_tag:"Коротко о главном", card_name:"Григорий Йвд", card_role:"копирайтер полного цикла",
     stat1:"лет опыта", stat2:"языка: UA · RU · EN", stat3:"отраслей", stat4:"исполнитель вместо троих",
     avail:"Открыт для новых проектов",
+    attic_title:"Почему Smart Attic",
+    attic_p1:"Когда-то романы писали на чердаках. Андерсен в свои 22 снимал каморку под крышей Копенгагена — перо, свеча и вид на крыши, который потом ожил в его сказках.",
+    attic_p2:"Я пишу не сказки, а страницы, что приносят заявки. Но суть не изменилась: чердак — место, где рождается история.",
+    attic_p3:"Smart Attic — мой чердак. Только вместо свечи здесь копирайтинг, лендинг и SEO.",
     pain_title:"Ваш сайт читают. Но покупают ли после него?",
     pain_sub:"Чаще всего — нет. Вот почему — и что я с этим делаю.",
     pain_was:"Было",
@@ -505,7 +535,7 @@ const T = {
     case5_t:"Контент для каталога приложений", case5_d:"Описания и материалы для многоязычного каталога Android-приложений и игр — сложное простыми словами.", case5_more:"Открыть →",
     case6_t:"SEO-продвижение", case6_d:"Семантика и контент для клининговой компании в Киеве: страницы, которые приводят клиентов из поиска.", case6_more:"Открыть →",
     about_title:"Обо мне",
-    about_p:"Я — Григорий Йвд, копирайтер из Ужгорода. Мне 41, в копирайтинге — больше 12 лет. Написанного — на три тома «Человека, который смеётся» Гюго. Я считал. Начал с текстовой биржи, потом агентство, теперь пишу и собираю страницы сам. Не из моды: просто надоело отдать хороший текст и смотреть, как его лепят на кривую страницу. Поэтому делаю всё сам — слово, страницу, SEO. И до сих пор учусь (сейчас — на соцработника): в чужую тему вникаю так же глубоко, как в собственную учёбу.",
+    about_p:"Я — Григорий Йвд, копирайтер из Ужгорода. Мне 41, больше 12 лет в копирайтинге — написанного на три тома «Человека, который смеётся» Гюго (я считал). Биржа → агентство → теперь пишу и собираю страницы сам: надоело отдавать хороший текст и смотреть, как его лепят на кривую страницу. Поэтому держу весь цикл — слово, страницу, SEO. Прежде чем писать, разбираю тему до корня: без ресёрча за текст не берусь.",
     ab1_t:"12+ лет опыта", ab1_d:"Агентства, маркетплейсы, бренды. Видел всё — от SEO-потока до продающих лендингов.",
     ab2_t:"Не перестаю учиться", ab2_d:"Студент, постоянно в новом материале. Любая тема — это просто ещё один ресёрч.",
     ab3_t:"Полный цикл", ab3_d:"Текст + вёрстка + SEO + публикация. Один исполнитель вместо трёх.",
@@ -543,9 +573,13 @@ const T = {
     hero_sub:"I don't hand over bare text — I build the whole page: landing pages, SEO content and UA/RU→EN localization. Remote-friendly, zero filler.",
     hero_cta:"Start a project — 15 min →",
     hero_cta2:"See the work",
-    card_tag:"At a glance", card_name:"Gregory Ivd", card_role:"copywriter · Uzhhorod",
+    card_tag:"At a glance", card_name:"Gregory Ivd", card_role:"full-cycle copywriter",
     stat1:"years of experience", stat2:"languages: UA · RU · EN", stat3:"industries", stat4:"person, not three",
     avail:"Open to new projects",
+    attic_title:"Why Smart Attic",
+    attic_p1:"Novels were once written in attics. At 22, Andersen rented a garret under the rooftops of Copenhagen — a quill, a candle, and a view of the roofs that later came alive in his fairy tales.",
+    attic_p2:"I don't write fairy tales — I write pages that bring leads. But the point hasn't changed: an attic is where a story is born.",
+    attic_p3:"Smart Attic is my attic. Only instead of a candle, it holds copywriting, landing pages and SEO.",
     pain_title:"Your site gets read. But do they buy after it?",
     pain_sub:"Usually not. Here's why — and what I do about it.",
     pain_was:"Before",
@@ -566,7 +600,7 @@ const T = {
     case5_t:"App-catalog content", case5_d:"Copy and material for a multilingual catalog of Android apps and games — complex made simple.", case5_more:"Open →",
     case6_t:"SEO promotion", case6_d:"Semantics and content for a Kyiv cleaning company: pages that bring clients from search.", case6_more:"Open →",
     about_title:"About me",
-    about_p:"I'm Gregory Ivd, a Ukraine-based copywriter (Uzhhorod), 41 — over 12 years in copywriting. What I've written adds up to three volumes of Hugo's The Man Who Laughs. I counted. I started on content mills, then an agency, and now I write and build pages myself. Not for the trend — I just got tired of handing over good text and watching it land on a broken page. So I do it all: the words, the page, the SEO. And I'm still studying (social work) — I dig into a client's field as deeply as into my own coursework.",
+    about_p:"I'm Gregory Ivd, a copywriter from Uzhhorod. I'm 41, with 12+ years in copywriting — enough words to fill three volumes of Hugo's “The Man Who Laughs” (I counted). Content mills → agency → now I write and build pages myself: I got tired of handing over good copy only to watch it slapped onto a broken page. So I own the full cycle — words, page, SEO. Before writing, I dig into the topic to the root: no research, no text.",
     ab1_t:"12+ years of experience", ab1_d:"Agencies, marketplaces, brands. I've seen it all — from SEO at scale to sales landing pages.",
     ab2_t:"Always learning", ab2_d:"A student, always in new material. Any topic is just one more round of research.",
     ab3_t:"Full cycle", ab3_d:"Copy + build + SEO + publishing. One person instead of three.",
@@ -644,7 +678,7 @@ document.getElementById('langs').addEventListener('click', e=>{
     Array.from(g.children).forEach((c,i)=>{ c.style.transitionDelay = ((i % 3) * 70) + 'ms'; });
   });
 
-  const targets = document.querySelectorAll('.sec-head, .card, .case, .step, .pstep, .faq-item, .about, .contact, .pain-card');
+  const targets = document.querySelectorAll('.sec-head, .card, .case, .step, .pstep, .faq-item, .about, .contact, .pain-card, .attic-card');
   targets.forEach(el => el.classList.add('reveal'));
 
   const io = new IntersectionObserver((entries)=>{
