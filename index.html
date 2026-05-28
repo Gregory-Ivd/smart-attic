@@ -165,6 +165,7 @@
   .contact .btn.tg{background:#fff;color:#0a5f49}
   .contact .btn.mail{background:transparent;border:1px solid rgba(255,255,255,.45);color:#fff;box-shadow:none}
   @media(max-width:640px){.contact{padding:34px 22px}.contact h2{font-size:26px}}
+  .contact .reply-time{color:#bdf0d8;font-size:14px;font-weight:600;margin:16px 0 0}
 
   /* Callback form (inside contact block) */
   .cb-lead{color:#cfe7dd;font-size:15px;text-align:center;margin:24px 0 12px}
@@ -180,6 +181,25 @@
   .cb-status.ok{color:#bdf0d8;font-weight:700}
   .cb-status.err{color:#ffd9d2;font-weight:700}
   @media(max-width:560px){.cb-row{display:block}}
+
+  /* Audit / lead magnet */
+  .audit-card{background:var(--accent-soft);border:1px solid #cfe6dd;border-radius:24px;padding:34px 36px;display:flex;align-items:center;gap:28px;justify-content:space-between;flex-wrap:wrap}
+  .audit-body{flex:1;min-width:260px}
+  .audit-card .kicker{background:#fff;margin-bottom:14px}
+  .audit-card h2{font-size:27px;font-weight:800;margin:0 0 8px}
+  .audit-card p{color:var(--muted);font-size:18px;margin:0;max-width:54ch}
+  .audit-card .btn{flex:0 0 auto}
+  .audit-form{display:flex;flex-direction:column;gap:10px;flex:0 0 320px;max-width:340px}
+  .audit-form input{width:100%;background:#fff;border:1px solid #cfe6dd;border-radius:10px;padding:12px 14px;font:inherit;font-size:15px;color:var(--ink);-webkit-appearance:none}
+  .audit-form input::placeholder{color:#7c867f}
+  .audit-form input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(10,95,73,.15)}
+  .audit-submit{width:100%;justify-content:center}
+  .audit-submit:disabled{opacity:.6;cursor:default}
+  .audit-status{min-height:18px;margin:2px 0 0;font-size:13px;text-align:center;color:var(--muted)}
+  .audit-status.ok{color:var(--accent);font-weight:700}
+  .audit-status.err{color:#b23b3b;font-weight:700}
+  @media(max-width:640px){.audit-card{padding:26px 22px}.audit-card h2{font-size:22px}}
+  @media(max-width:760px){.audit-form{flex-basis:auto;max-width:none;width:100%}}
 
   /* FAQ */
   .faq-list{display:grid;gap:12px}
@@ -200,6 +220,39 @@
   footer.site b{color:var(--ink)}
   .footer-tagline{font-style:italic;font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-.01em;margin:0 0 12px}
 </style>
+
+<!-- ====== RETARGETING / РЕТАРГЕТИНГ ======
+     Щоб «наздоганяти» рекламою тих, хто був на сайті й пішов.
+     Встав свій ID і прибери рядки-коментарі довкола потрібного блоку.
+
+     1) Meta Pixel (Facebook / Instagram) — ID виду 1234567890
+        business.facebook.com -> Events Manager -> Data Sources
+     2) Google Ads / GA4 — ID виду AW-XXXXXXXXX або G-XXXXXXXXXX
+        ads.google.com -> Tools -> Conversions / Google tag
+-->
+
+<!-- META PIXEL: встав свій PIXEL_ID і прибери рядки цього коментаря
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','PIXEL_ID');
+fbq('track','PageView');
+</script>
+-->
+
+<!-- GOOGLE TAG (gtag.js): встав свій AW-XXXXXXXXX і прибери рядки цього коментаря
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-XXXXXXXXX');
+</script>
+-->
+
 </head>
 <body>
 
@@ -248,19 +301,6 @@
     </aside>
   </div>
 </div>
-
-<!-- ATTIC / WHY THE NAME -->
-<section id="attic">
-  <div class="wrap">
-    <div class="attic-card">
-      <div class="attic-mark">✒</div>
-      <h2 data-i18n="attic_title">Чому Smart Attic</h2>
-      <p class="attic-prose" data-i18n="attic_p1">Колись романи писали на горищах. Андерсен у 22 винаймав комірчину під дахом Копенгагена — перо, свічка і вид на дахи, що потім ожив у його казках.</p>
-      <p class="attic-prose" data-i18n="attic_p2">Я пишу не казки, а сторінки, що приносять заявки. Але суть не змінилась: горище — це місце, де народжується історія.</p>
-      <p class="attic-punch" data-i18n="attic_p3">Smart Attic — моє горище. Свічку змінив екран — історії лишились, тільки тепер вони приносять заявки.</p>
-    </div>
-  </div>
-</section>
 
 <!-- PAIN -->
 <section id="pain">
@@ -343,7 +383,7 @@
       <div class="case">
         <div class="tag">animalpark</div>
         <h3 data-i18n="case2_t">Контент для зоопарку</h3>
-        <p data-i18n="case2_d">Тексти для сайту контактного зоопарку в Києві: описи тварин і атракцій, новини, сторінки під пошук.</p>
+        <p data-i18n="case2_d">Переписав сайт під пошук — описи тварин, атракціони, посадкові сторінки. У топі Google за запитом «контактний зоопарк Київ» — друга позиція в ніші, одразу після лідера.</p>
         <a class="more" href="https://animalpark.com.ua/" target="_blank" rel="noopener" data-i18n="case2_more">Відкрити →</a>
       </div>
       <div class="case">
@@ -382,6 +422,19 @@
         <li><b data-i18n="ab3_t">Повний цикл</b><span data-i18n="ab3_d">Текст + верстка + SEO + публікація. Один виконавець замість трьох.</span></li>
       </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATTIC / WHY THE NAME -->
+<section id="attic">
+  <div class="wrap">
+    <div class="attic-card">
+      <div class="attic-mark">✒</div>
+      <h2 data-i18n="attic_title">Чому Smart Attic</h2>
+      <p class="attic-prose" data-i18n="attic_p1">Колись романи писали на горищах. Андерсен у 22 винаймав комірчину під дахом Копенгагена — перо, свічка і вид на дахи, що потім ожив у його казках.</p>
+      <p class="attic-prose" data-i18n="attic_p2">Я пишу не казки, а сторінки, що приносять заявки. Але суть не змінилась: горище — це місце, де народжується історія.</p>
+      <p class="attic-punch" data-i18n="attic_p3">Smart Attic — моє горище. Свічку змінив екран — історії лишились, тільки тепер вони приносять заявки.</p>
     </div>
   </div>
 </section>
@@ -426,6 +479,25 @@
   </div>
 </section>
 
+<!-- AUDIT / LEAD MAGNET -->
+<section id="audit">
+  <div class="wrap">
+    <div class="audit-card">
+      <div class="audit-body">
+        <span class="kicker" data-i18n="audit_kicker">Безкоштовно</span>
+        <h2 data-i18n="audit_title">Не готові замовляти? Почніть з безкоштовного.</h2>
+        <p data-i18n="audit_sub">Пришлю 3 конкретні правки вашої сторінки — без созвону і без зобов'язань. Просто киньте посилання.</p>
+      </div>
+      <form class="audit-form" id="auditForm" novalidate>
+        <input type="url" name="url" data-i18n-ph="audit_ph_url" placeholder="Посилання на вашу сторінку" inputmode="url" required>
+        <input type="text" name="contact" data-i18n-ph="audit_ph_contact" placeholder="Telegram / телефон / email — куди надіслати">
+        <button type="submit" class="btn audit-submit" data-i18n="audit_cta">Надіслати сторінку на аудит →</button>
+        <p class="audit-status" id="auditStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
@@ -436,11 +508,12 @@
         <a class="btn tg" href="https://t.me/Gregory_ivd" target="_blank" rel="noopener" data-i18n="contact_tg">Написати в Telegram</a>
         <a class="btn mail" href="mailto:apshanuivd@gmail.com" data-i18n="contact_mail">Написати на email</a>
       </div>
+      <p class="reply-time" data-i18n="reply_time">⚡ Зазвичай відповідаю протягом 2 годин</p>
       <p class="cb-lead" data-i18n="cb_lead">Або залиште номер — передзвоню.</p>
       <form class="cb-form" id="callbackForm" novalidate>
         <div class="cb-row">
           <input type="text" name="name" data-i18n-ph="cb_name" placeholder="Ім'я" autocomplete="name" required>
-          <input type="tel" name="phone" data-i18n-ph="cb_phone" placeholder="Телефон" autocomplete="tel" required>
+          <input type="text" name="phone" data-i18n-ph="cb_phone" placeholder="Телефон або @нік у Telegram" autocomplete="tel" required>
         </div>
         <input type="text" name="note" data-i18n-ph="cb_note" placeholder="Коротко про задачу (необов'язково)" autocomplete="off">
         <button type="submit" class="btn cb-submit" data-i18n="cb_btn">Замовити дзвінок</button>
@@ -491,7 +564,7 @@ const T = {
     cases_title:"Вибрані роботи",
     cases_sub:"Агенції, бренди й власні проєкти. Конкретні цифри та посилання — на запит.",
     case1_t:"SEO-копірайтинг", case1_d:"Статті та посадкові сторінки для міжнародної digital-агенції: тексти під пошук і під конверсію.", case1_more:"Відкрити →",
-    case2_t:"Контент для зоопарку", case2_d:"Тексти для сайту контактного зоопарку в Києві: описи тварин і атракцій, новини, сторінки під пошук.", case2_more:"Відкрити →",    case4_t:"Освітній проєкт під ключ", case4_d:"Лендинг + інтерактивні тести НМТ (HTML/JS) зі збором заявок і аналітикою. Текст, верстка, логіка — усе сам.", case4_more:"Відкрити →",
+    case2_t:"Контент + SEO для зоопарку", case2_d:"Переписав сайт під пошук — описи тварин, атракціони, посадкові сторінки. У топі Google за запитом «контактний зоопарк Київ» — друга позиція в ніші, одразу після лідера.", case2_more:"Відкрити →",    case4_t:"Освітній проєкт під ключ", case4_d:"Лендинг + інтерактивні тести НМТ (HTML/JS) зі збором заявок і аналітикою. Текст, верстка, логіка — усе сам.", case4_more:"Відкрити →",
     case5_t:"Контент для каталогу додатків", case5_d:"Описи й матеріали для багатомовного каталогу Android-додатків та ігор — складне простими словами.", case5_more:"Відкрити →",
     case6_t:"SEO-просування", case6_d:"Семантика й контент для клінінгової компанії в Києві: сторінки, що приводять клієнтів з пошуку.", case6_more:"Відкрити →",
     about_title:"Про мене",
@@ -517,15 +590,19 @@ const T = {
     contact_title:"Є проєкт? Пишіть без передмов.",
     contact_sub:"Два речення про задачу — і я чесно скажу, берусь чи ні. Без «давайте зідзвонимось на годинку».",
     contact_tg:"Написати в Telegram", contact_mail:"Написати на email",
+    reply_time:"⚡ Зазвичай відповідаю протягом 2 годин",
     cb_lead:"Або залиште номер — передзвоню.",
-    cb_name:"Ім'я", cb_phone:"Телефон", cb_note:"Коротко про задачу (необов'язково)",
+    cb_name:"Ім'я", cb_phone:"Телефон або @нік у Telegram", cb_note:"Коротко про задачу (необов'язково)",
     cb_btn:"Замовити дзвінок",
-    cb_sending:"Надсилаю…", cb_ok:"Дякую! Зв'яжуся найближчим часом.", cb_err:"Не вдалося надіслати. Напишіть у Telegram.", cb_err_fill:"Впишіть ім'я і телефон.",
+    cb_sending:"Надсилаю…", cb_ok:"Дякую! Зв'яжуся найближчим часом.", cb_err:"Не вдалося надіслати. Напишіть у Telegram.", cb_err_fill:"Впишіть ім'я і контакт (телефон або @нік).",
+    audit_ph_url:"Посилання на вашу сторінку", audit_ph_contact:"Telegram / телефон / email — куди надіслати",
+    audit_sending:"Надсилаю…", audit_ok:"Дякую! Надішлю правки найближчим часом.", audit_err:"Не вдалося надіслати. Напишіть у Telegram.", audit_err_fill:"Впишіть посилання на сторінку.",
     faq_title:"Часті запитання",
     faq1_q:"Скільки це коштує?", faq1_a:"Залежить від типу й обсягу: текст, лендинг під ключ чи SEO. Напишіть задачу — дам оцінку й терміни того ж дня.",
     faq2_q:"Як швидко буде готово?", faq2_a:"Невеликий текст — 1–2 дні. Лендинг під ключ — зазвичай 3–7 днів. Точні терміни — після короткого брифу.",
     faq3_q:"Ви працюєте з AI — що з якістю?", faq3_a:"AI прискорює чернетку й рутину. Але фінал редагую, перевіряю факти й відповідаю за результат я — не машина.",
     faq4_q:"Якими мовами пишете?", faq4_a:"Українською, російською та англійською — і копірайтинг, і SEO-тексти.",
+    audit_kicker:"Безкоштовно", audit_title:"Не готові замовляти? Почніть з безкоштовного.", audit_sub:"Пришлю 3 конкретні правки вашої сторінки — без созвону і без зобов'язань. Просто киньте посилання.", audit_cta:"Надіслати сторінку на аудит →",
     footer_tagline:"Класику писали на горищах. Тепер там пишуть лендинги.",
     footer_text:"Smart Attic · Григорій Йвд · копірайтинг, лендинги, SEO"
   },
@@ -534,7 +611,7 @@ const T = {
     nav_cta:"Обсудить проект",
     hero_kicker:"Копирайтинг + лендинг + SEO",
     hero_h1a:"Большинство текстов — шум.", hero_h1b:"Мои приносят заявки.",
-    hero_sub:"Не отдаю голый текст — собираю страницу целиком: копирайтинг, лендинг, SEO. Для русскоязычных клиентов (Украина и диаспора). Ноль лишних слов.",
+    hero_sub:"Не отдаю голый текст — собираю страницу целиком: копирайтинг, лендинг, SEO. Работаю с русскоязычными клиентами — в Украине и за рубежом. Ноль лишних слов.",
     hero_cta:"Обсудить проект — 15 мин →",
     hero_cta2:"Посмотреть работы",
     card_tag:"Коротко о главном", card_name:"Григорий Йвд", card_role:"копирайтер полного цикла",
@@ -560,7 +637,7 @@ const T = {
     cases_title:"Избранные работы",
     cases_sub:"Агентства, бренды и собственные проекты. Конкретные цифры и ссылки — по запросу.",
     case1_t:"SEO-копирайтинг", case1_d:"Статьи и посадочные страницы для международного digital-агентства: тексты под поиск и под конверсию.", case1_more:"Открыть →",
-    case2_t:"Контент для зоопарка", case2_d:"Тексты для сайта контактного зоопарка в Киеве: описания животных и аттракционов, новости, страницы под поиск.", case2_more:"Открыть →",    case4_t:"Образовательный проект под ключ", case4_d:"Лендинг + интерактивные тесты НМТ (HTML/JS) со сбором заявок и аналитикой. Текст, вёрстка, логика — всё сам.", case4_more:"Открыть →",
+    case2_t:"Контент + SEO для зоопарка", case2_d:"Переписал сайт под поиск — описания животных, аттракционы, посадочные страницы. В топе Google по запросу «контактный зоопарк Киев» — вторая позиция в нише, сразу после лидера.", case2_more:"Открыть →",    case4_t:"Образовательный проект под ключ", case4_d:"Лендинг + интерактивные тесты НМТ (HTML/JS) со сбором заявок и аналитикой. Текст, вёрстка, логика — всё сам.", case4_more:"Открыть →",
     case5_t:"Контент для каталога приложений", case5_d:"Описания и материалы для многоязычного каталога Android-приложений и игр — сложное простыми словами.", case5_more:"Открыть →",
     case6_t:"SEO-продвижение", case6_d:"Семантика и контент для клининговой компании в Киеве: страницы, которые приводят клиентов из поиска.", case6_more:"Открыть →",
     about_title:"Обо мне",
@@ -586,15 +663,19 @@ const T = {
     contact_title:"Есть проект? Пишите без предисловий.",
     contact_sub:"Два предложения о задаче — и я честно скажу, берусь или нет. Без «давайте созвонимся на часик».",
     contact_tg:"Написать в Telegram", contact_mail:"Написать на email",
+    reply_time:"⚡ Обычно отвечаю в течение 2 часов",
     cb_lead:"Или оставьте номер — перезвоню.",
-    cb_name:"Имя", cb_phone:"Телефон", cb_note:"Коротко о задаче (необязательно)",
+    cb_name:"Имя", cb_phone:"Телефон или @ник в Telegram", cb_note:"Коротко о задаче (необязательно)",
     cb_btn:"Заказать звонок",
-    cb_sending:"Отправляю…", cb_ok:"Спасибо! Свяжусь в ближайшее время.", cb_err:"Не удалось отправить. Напишите в Telegram.", cb_err_fill:"Впишите имя и телефон.",
+    cb_sending:"Отправляю…", cb_ok:"Спасибо! Свяжусь в ближайшее время.", cb_err:"Не удалось отправить. Напишите в Telegram.", cb_err_fill:"Впишите имя и контакт (телефон или @ник).",
+    audit_ph_url:"Ссылка на вашу страницу", audit_ph_contact:"Telegram / телефон / email — куда прислать",
+    audit_sending:"Отправляю…", audit_ok:"Спасибо! Пришлю правки в ближайшее время.", audit_err:"Не удалось отправить. Напишите в Telegram.", audit_err_fill:"Впишите ссылку на страницу.",
     faq_title:"Частые вопросы",
     faq1_q:"Сколько это стоит?", faq1_a:"Зависит от типа и объёма: текст, лендинг под ключ или SEO. Напишите задачу — дам оценку и сроки в тот же день.",
     faq2_q:"Как быстро будет готово?", faq2_a:"Небольшой текст — 1–2 дня. Лендинг под ключ — обычно 3–7 дней. Точные сроки — после короткого брифа.",
     faq3_q:"Вы работаете с AI — что с качеством?", faq3_a:"AI ускоряет черновик и рутину. Но финал редактирую, проверяю факты и отвечаю за результат я — не машина.",
     faq4_q:"На каких языках пишете?", faq4_a:"На украинском, русском и английском — и копирайтинг, и SEO-тексты.",
+    audit_kicker:"Бесплатно", audit_title:"Не готовы заказывать? Начните с бесплатного.", audit_sub:"Пришлю 3 конкретные правки вашей страницы — без созвона и без обязательств. Просто киньте ссылку.", audit_cta:"Отправить страницу на аудит →",
     footer_tagline:"Классику писали на чердаках. Теперь там пишут лендинги.",
     footer_text:"Smart Attic · Григорий Йвд · копирайтинг, лендинги, SEO"
   },
@@ -621,7 +702,7 @@ const T = {
     pain3_t:"Copy's ready, design's ready — but a live page means hunting for yet another contractor.", pain3_a:"I deliver a finished landing page, not a Word file",
     pain4_t:"The copywriter never dug into the product — wrote generic “for everyone” lines.", pain4_a:"Research before writing: product, competitors, the audience's language",
     services_title:"What I do",
-    services_sub:"Full cycle, remote: from the first word to a page that brings in leads — built to work, not to look pretty.",
+    services_sub:"Full cycle: from the first word to a page that brings in leads — built to work, not to look pretty.",
     svc1_t:"Copywriting", svc1_d:"Landing pages, websites, product descriptions, email, articles. Text people read — and act on.",
     svc2_t:"Landing pages", svc2_d:"Not just copy — a finished page: structure, build, publishing (HTML / GitHub Pages). I deliver a result, not a Word file.", svc2_badge:"Popular",
     svc3_t:"SEO", svc3_d:"Search-friendly copy: semantics, structure, headings. So the page gets found, not just looks good.",
@@ -629,7 +710,7 @@ const T = {
     cases_title:"Selected work",
     cases_sub:"Work for international agencies, brands and my own projects. Numbers and links on request.",
     case1_t:"SEO copywriting", case1_d:"Articles and landing pages for an international digital agency: copy built for search and conversion.", case1_more:"Open →",
-    case2_t:"Content for a petting zoo", case2_d:"Website copy for a contact zoo in Kyiv: animal and attraction descriptions, news, search-friendly pages.", case2_more:"Open →",    case4_t:"Education project, end-to-end", case4_d:"Landing page + interactive exam tests (HTML/JS) with lead capture and analytics. Copy, build, logic — all mine.", case4_more:"Open →",
+    case2_t:"Content + SEO for a petting zoo", case2_d:"Rewrote the site for search — animal descriptions, attractions, landing pages. Top of Google for “contact zoo Kyiv” — second in the niche, right after the leader.", case2_more:"Open →",    case4_t:"Education project, end-to-end", case4_d:"Landing page + interactive exam tests (HTML/JS) with lead capture and analytics. Copy, build, logic — all mine.", case4_more:"Open →",
     case5_t:"App-catalog content", case5_d:"Copy and material for a multilingual catalog of Android apps and games — complex made simple.", case5_more:"Open →",
     case6_t:"SEO promotion", case6_d:"Semantics and content for a Kyiv cleaning company: pages that bring clients from search.", case6_more:"Open →",
     about_title:"About me",
@@ -655,15 +736,19 @@ const T = {
     contact_title:"Got a project? Skip the intro.",
     contact_sub:"Two lines about the task and I'll tell you honestly if I can help — no “let's hop on a quick call” first.",
     contact_tg:"Message on Telegram", contact_mail:"Send an email",
+    reply_time:"⚡ I usually reply within 2 hours",
     cb_lead:"Or leave your number — I'll call back.",
-    cb_name:"Name", cb_phone:"Phone", cb_note:"Briefly about the task (optional)",
+    cb_name:"Name", cb_phone:"Phone or @Telegram handle", cb_note:"Briefly about the task (optional)",
     cb_btn:"Request a call",
-    cb_sending:"Sending…", cb_ok:"Thanks! I'll be in touch shortly.", cb_err:"Couldn't send. Please message me on Telegram.", cb_err_fill:"Please enter your name and phone.",
+    cb_sending:"Sending…", cb_ok:"Thanks! I'll be in touch shortly.", cb_err:"Couldn't send. Please message me on Telegram.", cb_err_fill:"Please enter your name and a contact.",
+    audit_ph_url:"Link to your page", audit_ph_contact:"Telegram / phone / email — where to send",
+    audit_sending:"Sending…", audit_ok:"Thanks! I'll send the fixes shortly.", audit_err:"Couldn't send. Please message me on Telegram.", audit_err_fill:"Please enter your page link.",
     faq_title:"FAQ",
     faq1_q:"How much does it cost?", faq1_a:"It depends on the type and scope: copy, a full landing page, or SEO. Send me the task — I'll give an estimate and a timeline the same day.",
     faq2_q:"How fast is it done?", faq2_a:"A short text — 1–2 days. A full landing page — usually 3–7 days. Exact timing after a short brief.",
     faq3_q:"You use AI — what about quality?", faq3_a:"AI speeds up drafts and routine. But I edit the final, check the facts and own the result — not the machine.",
     faq4_q:"Which languages do you write in?", faq4_a:"Ukrainian, Russian and English — both copywriting and SEO texts.",
+    audit_kicker:"Free", audit_title:"Not ready to hire? Start free.", audit_sub:"I'll send you 3 concrete fixes for your page — no call, no strings. Just drop the link.", audit_cta:"Send your page for a review →",
     footer_tagline:"Classics were written in attics. Now it's landing pages.",
     footer_text:"Smart Attic · Gregory Ivd · copywriting, landing pages, SEO"
   }
@@ -748,7 +833,7 @@ document.getElementById('langs').addEventListener('click', e=>{
     var phone = (form.querySelector('[name="phone"]').value || '').trim();
     var noteEl = form.querySelector('[name="note"]');
     var note = noteEl ? (noteEl.value || '').trim() : '';
-    if(!name || phone.replace(/\D/g,'').length < 5){
+    if(!name || !phone){
       statusEl.textContent = tr('cb_err_fill');
       statusEl.className = 'cb-status err';
       return;
@@ -767,6 +852,42 @@ document.getElementById('langs').addEventListener('click', e=>{
     }).catch(function(){
       statusEl.textContent = tr('cb_err');
       statusEl.className = 'cb-status err';
+    }).finally(function(){ btn.disabled = false; });
+  });
+})();
+
+/* ===== Audit form -> Telegram (same Apps Script relay) ===== */
+(function(){
+  var form = document.getElementById('auditForm');
+  if(!form) return;
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbwDa6R5vr59E6bviLAQ-fiPfaALTsrX-4XBIp6ZDgJ6HKVirw0ZaCUzkaHCSjLm6TVV/exec';
+  var statusEl = document.getElementById('auditStatus');
+  var btn = form.querySelector('.audit-submit');
+  function curLang(){ var b = document.querySelector('#langs button.on'); return (b && b.dataset.lang) || 'ua'; }
+  function tr(k){ var d = T[curLang()] || T.ua; return d[k] || (T.ua && T.ua[k]) || ''; }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var url = (form.querySelector('[name="url"]').value || '').trim();
+    var contact = (form.querySelector('[name="contact"]').value || '').trim();
+    if(!url){
+      statusEl.textContent = tr('audit_err_fill');
+      statusEl.className = 'audit-status err';
+      return;
+    }
+    btn.disabled = true;
+    statusEl.className = 'audit-status';
+    statusEl.textContent = tr('audit_sending');
+    fetch(ENDPOINT, {
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body: JSON.stringify({ name:'🔍 Заявка на аудит', phone:(contact || '—'), note:('Сайт на аудит: ' + url) })
+    }).then(function(){
+      form.reset();
+      statusEl.textContent = tr('audit_ok');
+      statusEl.className = 'audit-status ok';
+    }).catch(function(){
+      statusEl.textContent = tr('audit_err');
+      statusEl.className = 'audit-status err';
     }).finally(function(){ btn.disabled = false; });
   });
 })();
