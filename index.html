@@ -30,8 +30,8 @@
   html{scroll-behavior:smooth}
   body{margin:0;min-height:100vh;background:linear-gradient(180deg,var(--bg) 0%,#eef1ec 55%,#e4ebe4 100%) no-repeat;color:var(--ink);
     font-family:-apple-system,"Segoe UI",Roboto,Inter,system-ui,Arial,sans-serif;
-    font-size:19px;line-height:1.66;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+    font-size:20px;line-height:1.66;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
   a{color:inherit;text-decoration:none}
   h1,h2,h3{line-height:1.15;letter-spacing:-.02em;margin:0}
   .accent{color:var(--accent)}
@@ -62,7 +62,7 @@
   .hero::before{content:"";position:absolute;top:-120px;right:-120px;width:420px;height:420px;border-radius:50%;
     background:radial-gradient(circle,var(--accent-soft),transparent 70%);z-index:0}
   .hero .wrap{position:relative;z-index:1}
-  .kicker{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:13px;
+  .kicker{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:14px;
     letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:20px}
   .hero h1{font-size:50px;font-weight:800;line-height:1.12;text-wrap:balance}
   .hero p.lead{font-size:22px;color:var(--muted);max-width:60ch;margin:20px 0 30px}
@@ -70,7 +70,7 @@
   /* Hero two-column + stat card (adapted from concept-v2) */
   .hero-grid{display:grid;grid-template-columns:1fr 360px;gap:44px;align-items:center}
   .hero-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow-sm)}
-  .hero-card-tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .hero-card-tag{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
   .hero-card-head{display:flex;align-items:center;gap:16px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
   .hero-avatar{flex:0 0 132px;width:132px;height:132px;border-radius:50%;overflow:hidden;background:var(--accent-soft);display:grid;place-items:center;position:relative}
   .hero-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -116,14 +116,14 @@
   .card.featured{background:var(--ink);border-color:var(--ink)}
   .card.featured h3{color:#fff}
   .card.featured p{color:rgba(255,255,255,.72)}
-  .card .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:#fff;padding:4px 11px;border-radius:999px;margin-bottom:14px}
+  .card .badge{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:#fff;padding:4px 11px;border-radius:999px;margin-bottom:14px}
 
   /* Pain (Було → стало) — adapted from concept-v2 */
   .pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   @media(max-width:760px){.pain-grid{grid-template-columns:1fr}}
   .pain-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);transition:transform .15s,box-shadow .15s,border-color .15s}
   .pain-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--accent)}
-  .pain-label{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#b23b3b;margin-bottom:9px;display:flex;align-items:center;gap:6px}
+  .pain-label{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#b23b3b;margin-bottom:9px;display:flex;align-items:center;gap:6px}
   .pain-label::before{content:'✕';font-size:10px}
   .pain-text{font-size:16px;color:var(--muted);line-height:1.55;padding-bottom:13px;border-bottom:1px solid var(--line);margin-bottom:13px}
   .pain-after{font-size:15px;font-weight:700;color:var(--accent);display:flex;align-items:flex-start;gap:7px}
@@ -135,7 +135,7 @@
   @media(max-width:860px){.cases{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:560px){.cases{grid-template-columns:1fr}}
   .case{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-sm)}
-  .case .tag{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}
+  .case .tag{font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}
   .case h3{font-size:19px;font-weight:800;margin:6px 0 8px}
   .case p{color:var(--muted);font-size:16px;margin:0}
   .case a.more{display:inline-block;margin-top:12px;font-weight:700;font-size:14px;color:var(--accent)}
@@ -473,7 +473,7 @@ src="https://www.facebook.com/tr?id=1623405175410955&ev=PageView&noscript=1"/></
       <div class="attic-mark">✒</div>
       <h2 data-i18n="attic_title">Чому Smart Attic</h2>
       <p class="attic-prose" data-i18n="attic_p1">Горище — це де я працюю: невеликий кабінет під дахом в Ужгороді, з вікна видно черепицю сусідніх будинків.</p>
-      <p class="attic-punch" data-i18n="attic_p3">Звідси пишу для клієнтів з різних країн, а ще збираю сторінки, які вони потім публікують.</p>
+      <p class="attic-punch" data-i18n="attic_p3">Звідси пишу для клієнтів з різних країн, а ще збираю й публікую сторінки, які потім працюють на них.</p>
     </div>
   </div>
 </section>
@@ -571,7 +571,7 @@ const T = {
     avail:"Відкритий для нових проєктів",
     attic_title:"Чому Smart Attic",
     attic_p1:"Горище — це де я працюю: невеликий кабінет під дахом в Ужгороді, з вікна видно черепицю сусідніх будинків.",
-    attic_p3:"Звідси пишу для клієнтів з різних країн, а ще збираю сторінки, які вони потім публікують.",
+    attic_p3:"Звідси пишу для клієнтів з різних країн, а ще збираю й публікую сторінки, які потім працюють на них.",
     pain_title:"Ваш сайт читають. Але чи купують після нього?",
     pain_sub:"Найчастіше ні. Ось чотири типові причини і що я з ними роблю.",
     pain_was:"Було",
@@ -637,7 +637,7 @@ const T = {
     avail:"Открыт для новых проектов",
     attic_title:"Почему Smart Attic",
     attic_p1:"Чердак — это где я работаю: небольшой кабинет под крышей в Ужгороде, из окна видна черепица соседних домов.",
-    attic_p3:"Отсюда пишу для клиентов из разных стран, а ещё собираю страницы, которые они потом публикуют.",
+    attic_p3:"Отсюда пишу для клиентов из разных стран, а ещё собираю и публикую страницы, которые потом работают на них.",
     pain_title:"Ваш сайт читают. Но покупают ли после него?",
     pain_sub:"Чаще всего нет. Вот четыре типичные причины и что я с ними делаю.",
     pain_was:"Было",
@@ -703,7 +703,7 @@ const T = {
     avail:"Open to new projects",
     attic_title:"Why Smart Attic",
     attic_p1:"The attic is where I work: a small room under the roof in Uzhhorod, with a view of the neighbors' rooftops.",
-    attic_p3:"That's where I write for clients in different countries, and where I build the pages they end up publishing.",
+    attic_p3:"That's where I write for clients in different countries, and where I build and publish the pages that then work for them.",
     pain_title:"Your site gets read. But do people buy after it?",
     pain_sub:"Usually not. Here are four common reasons, and what I do about them.",
     pain_was:"Before",
