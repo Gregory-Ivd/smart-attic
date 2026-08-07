@@ -918,11 +918,40 @@ document.getElementById('year').textContent = new Date().getFullYear();
   setTimeout(()=>{ targets.forEach(el => el.classList.add('in')); io.disconnect(); }, 1500);
 })();
 
+/* ===== Відправка заявки в реле Apps Script =====
+   Раніше тут стояв mode:'no-cors'. Такий запит завжди повертає opaque
+   response, тому .then() спрацьовував навіть на 403 — сторінка писала
+   «Дякую!», а заявка нікуди не йшла і про це ніхто не дізнавався.
+   Тепер відповідь читається по-справжньому: реле віддає "ok", усе інше
+   вважається збоєм і показує контакти для прямого зв'язку.          */
+var RELAY_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw5QXQXcn9vUOZsu8Tu13YndCJHhnhfX9HqLCv_KpTqQ4S46geCJqnwmpdBR6XOIKPn/exec';
+
+function sendLead(payload){
+  return fetch(RELAY_ENDPOINT, {
+    method: 'POST',
+    headers: {'Content-Type': 'text/plain;charset=utf-8'},
+    body: JSON.stringify(payload)
+  }).then(function(res){
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    return res.text();
+  }).then(function(text){
+    if((text || '').trim().slice(0,2).toLowerCase() !== 'ok'){
+      throw new Error('relay: ' + (text || 'порожня відповідь').slice(0,120));
+    }
+  });
+}
+
+/* Заявку втрачати не можна: якщо реле не відповіло, показуємо пряме
+   посилання, щоб людина написала сама. */
+function failMessage(msg){
+  return msg + ' <a href="https://t.me/Gregory_ivd" target="_blank" rel="noopener" style="text-decoration:underline">@Gregory_ivd</a>';
+}
+
 /* ===== Callback form -> Telegram (Apps Script relay) ===== */
 (function(){
   var form = document.getElementById('callbackForm');
   if(!form) return;
-  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbw5QXQXcn9vUOZsu8Tu13YndCJHhnhfX9HqLCv_KpTqQ4S46geCJqnwmpdBR6XOIKPn/exec';
+  var ENDPOINT = RELAY_ENDPOINT;
   var statusEl = document.getElementById('cbStatus');
   var btn = form.querySelector('.cb-submit');
   function curLang(){ var b = document.querySelector('#langs button.on'); return (b && b.dataset.lang) || 'ua'; }
@@ -941,17 +970,14 @@ document.getElementById('year').textContent = new Date().getFullYear();
     btn.disabled = true;
     statusEl.className = 'cb-status';
     statusEl.textContent = tr('cb_sending');
-    fetch(ENDPOINT, {
-      method:'POST', mode:'no-cors',
-      headers:{'Content-Type':'text/plain;charset=utf-8'},
-      body: JSON.stringify({ name:name, phone:phone, note:note })
-    }).then(function(){
+    sendLead({ name:name, phone:phone, note:note }).then(function(){
       if(window.fbq) fbq('track','Lead');
       form.reset();
       statusEl.textContent = tr('cb_ok');
       statusEl.className = 'cb-status ok';
-    }).catch(function(){
-      statusEl.textContent = tr('cb_err');
+    }).catch(function(err){
+      console.error('Заявка не пішла:', err);
+      statusEl.innerHTML = failMessage(tr('cb_err'));
       statusEl.className = 'cb-status err';
     }).finally(function(){ btn.disabled = false; });
   });
@@ -978,17 +1004,14 @@ document.getElementById('year').textContent = new Date().getFullYear();
     btn.disabled = true;
     statusEl.className = 'audit-status';
     statusEl.textContent = tr('audit_sending');
-    fetch(ENDPOINT, {
-      method:'POST', mode:'no-cors',
-      headers:{'Content-Type':'text/plain;charset=utf-8'},
-      body: JSON.stringify({ name:'🔍 Заявка на аудит', phone:(contact || '—'), note:('Сайт на аудит: ' + url) })
-    }).then(function(){
+    sendLead({ name:'🔍 Заявка на аудит', phone:(contact || '—'), note:('Сайт на аудит: ' + url) }).then(function(){
       if(window.fbq) fbq('track','Lead');
       form.reset();
       statusEl.textContent = tr('audit_ok');
       statusEl.className = 'audit-status ok';
-    }).catch(function(){
-      statusEl.textContent = tr('audit_err');
+    }).catch(function(err){
+      console.error('Заявка на аудит не пішла:', err);
+      statusEl.innerHTML = failMessage(tr('audit_err'));
       statusEl.className = 'audit-status err';
     }).finally(function(){ btn.disabled = false; });
   });
