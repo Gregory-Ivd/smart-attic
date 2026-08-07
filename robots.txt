@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gregory-ivd.github.io/smart-attic/sitemap.xml
