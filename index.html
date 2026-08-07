@@ -924,7 +924,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
    «Дякую!», а заявка нікуди не йшла і про це ніхто не дізнавався.
    Тепер відповідь читається по-справжньому: реле віддає "ok", усе інше
    вважається збоєм і показує контакти для прямого зв'язку.          */
-var RELAY_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw5QXQXcn9vUOZsu8Tu13YndCJHhnhfX9HqLCv_KpTqQ4S46geCJqnwmpdBR6XOIKPn/exec';
+var RELAY_ENDPOINT = 'https://script.google.com/macros/s/AKfycby7Bj2T-txc9a52EKoNy5Mhb0aPi7nx4B-XyyN8IRF4lroQ40jzf9kTrNMafz6bCtCm/exec';
 
 function sendLead(payload){
   return fetch(RELAY_ENDPOINT, {
@@ -951,7 +951,6 @@ function failMessage(msg){
 (function(){
   var form = document.getElementById('callbackForm');
   if(!form) return;
-  var ENDPOINT = RELAY_ENDPOINT;
   var statusEl = document.getElementById('cbStatus');
   var btn = form.querySelector('.cb-submit');
   function curLang(){ var b = document.querySelector('#langs button.on'); return (b && b.dataset.lang) || 'ua'; }
@@ -987,7 +986,6 @@ function failMessage(msg){
 (function(){
   var form = document.getElementById('auditForm');
   if(!form) return;
-  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbw5QXQXcn9vUOZsu8Tu13YndCJHhnhfX9HqLCv_KpTqQ4S46geCJqnwmpdBR6XOIKPn/exec';
   var statusEl = document.getElementById('auditStatus');
   var btn = form.querySelector('.audit-submit');
   function curLang(){ var b = document.querySelector('#langs button.on'); return (b && b.dataset.lang) || 'ua'; }
