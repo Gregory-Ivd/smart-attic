@@ -28,10 +28,10 @@ TARGETS = {
         "html_lang": "ru",
         "og_locale": "ru_RU",
         "description": "Smart Attic — копирайтинг, лендинги под ключ и SEO. "
-                       "Григорий Йвд, 11+ лет опыта. UA / RU / EN.",
-        "og_description": "Григорий Йвд, копирайтер из Ужгорода. 11+ лет опыта, "
+                       "Григорий Йвд, 13+ лет опыта. UA / RU / EN.",
+        "og_description": "Григорий Йвд, копирайтер из Ужгорода. 13+ лет опыта, "
                           "три языка, тексты и лендинги под ключ.",
-        "person_desc": "Копирайтер с 11+ годами опыта: тексты, лендинги под ключ "
+        "person_desc": "Копирайтер с 13+ годами опыта: тексты, лендинги под ключ "
                        "и SEO на украинском, русском и английском.",
         "biz_desc": "Копирайтинг, лендинги под ключ и SEO в одних руках: текст, "
                     "вёрстка и публикация без посредников.",
@@ -55,10 +55,10 @@ TARGETS = {
         "html_lang": "en",
         "og_locale": "en_US",
         "description": "Smart Attic — copywriting, landing pages and SEO. "
-                       "Gregory Ivd, 11+ years of experience. UA / RU / EN.",
+                       "Gregory Ivd, 13+ years of experience. UA / RU / EN.",
         "og_description": "Gregory Ivd, copywriter based in Uzhhorod, Ukraine. "
-                          "11+ years, three languages, text and landing pages end to end.",
-        "person_desc": "Copywriter with 11+ years of experience: text, landing pages "
+                          "13+ years, three languages, text and landing pages end to end.",
+        "person_desc": "Copywriter with 13+ years of experience: text, landing pages "
                        "and SEO in Ukrainian, Russian and English.",
         "biz_desc": "Copywriting, landing pages and SEO in one pair of hands: "
                     "writing, build and publishing with no middlemen.",
