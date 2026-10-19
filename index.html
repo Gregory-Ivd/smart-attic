@@ -205,6 +205,28 @@
   .cb-status.err{color:#ffd9d2;font-weight:700}
   @media(max-width:560px){.cb-row{display:block}}
 
+  /* Brief form (under process steps) */
+  .brief{margin-top:34px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+  .brief summary{cursor:pointer;list-style:none;padding:20px 24px;font-weight:800;font-size:18px;color:var(--accent);display:flex;justify-content:space-between;gap:12px}
+  .brief summary::-webkit-details-marker{display:none}
+  .brief summary::after{content:"+";font-size:24px;line-height:1}
+  .brief[open] summary::after{content:"\2013"}
+  .brief-form{padding:0 24px 24px;max-width:640px}
+  .brief-form .lead{color:var(--muted);margin:0 0 18px;font-size:16px}
+  .brief-form .q{display:block;font-weight:700;font-size:15px;margin:14px 0 6px}
+  .brief-form input[type=text]{width:100%;border:1px solid #d6dbd8;border-radius:10px;padding:12px 14px;font:inherit;font-size:15px;color:var(--ink);background:#fff;margin-bottom:0;-webkit-appearance:none}
+  .brief-form .cb-row input{margin-bottom:10px}
+  .brief-form input[type=text]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chips label{display:inline-flex;align-items:center;gap:6px;border:1px solid #d6dbd8;border-radius:999px;padding:8px 14px;font-size:15px;cursor:pointer}
+  .chips input{accent-color:var(--accent)}
+  .chips label:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+  .brief-submit{margin-top:8px;width:100%;justify-content:center}
+  .brief-submit:disabled{opacity:.6;cursor:default}
+  .brief-status{min-height:20px;margin:12px 0 0;font-size:14px;color:var(--muted)}
+  .brief-status.ok{color:var(--accent);font-weight:700}
+  .brief-status.err{color:#b3261e;font-weight:700}
+
   /* Audit / lead magnet */
   .audit-card{background:var(--accent-soft);border:1px solid #cfe6dd;border-radius:24px;padding:34px 36px;display:flex;align-items:center;gap:28px;justify-content:space-between;flex-wrap:wrap}
   .audit-body{flex:1;min-width:260px}
@@ -606,11 +628,41 @@ src="https://www.facebook.com/tr?id=1623405175410955&ev=PageView&noscript=1"/></
   <div class="wrap">
     <div class="sec-head"><h2 data-i18n="process_title">Як ми працюємо</h2></div>
     <div class="steps">
-      <div class="step"><h3 data-i18n="st1_t">Бриф</h3><p data-i18n="st1_d">15 хвилин розмови: яка задача, хто аудиторія, яка мета.</p></div>
+      <div class="step"><h3 data-i18n="st1_t">Бриф</h3><p data-i18n="st1_d">15 хвилин розмови або коротка анкета нижче: яка задача, хто аудиторія, яка мета.</p></div>
       <div class="step"><h3 data-i18n="st2_t">Дослідження</h3><p data-i18n="st2_d">Дивлюся на продукт, конкурентів і що шукають у Google, інакше текст буде здогадкою.</p></div>
       <div class="step"><h3 data-i18n="st3_t">Текст і сторінка</h3><p data-i18n="st3_d">Пишу і структурую, за потреби одразу верстаю в лендинг.</p></div>
       <div class="step"><h3 data-i18n="st4_t">Правки й публікація</h3><p data-i18n="st4_d">Два раунди правок входять у вартість. Публікую сам або передаю готове.</p></div>
     </div>
+    <details class="brief" id="brief">
+      <summary data-i18n="br_sum">Не хочете дзвонити? Заповніть бриф за 5 хвилин</summary>
+      <form class="brief-form" id="briefForm" novalidate>
+        <p class="lead" data-i18n="br_lead">Ті самі питання, що на дзвінку. Обов'язковий лише контакт: решту можна дописати потім.</p>
+        <span class="q" data-i18n="br_q1">Що потрібно?</span>
+        <div class="chips">
+          <label><input type="radio" name="svc" value="Копірайтинг"><span data-i18n="br_o1">Текст</span></label>
+          <label><input type="radio" name="svc" value="Лендинг під ключ"><span data-i18n="br_o2">Лендинг під ключ</span></label>
+          <label><input type="radio" name="svc" value="SEO-текст"><span data-i18n="br_o3">SEO-текст</span></label>
+          <label><input type="radio" name="svc" value="Ще не знаю"><span data-i18n="br_o4">Ще не знаю</span></label>
+        </div>
+        <label class="q" for="br_what" data-i18n="br_q2">Що продаєте і чим відрізняєтесь від конкурентів?</label>
+        <input type="text" id="br_what" name="what" data-i18n-ph="br_p2" placeholder="Напр.: ремонт ноутбуків, діагностика за 30 хвилин" autocomplete="off">
+        <label class="q" for="br_who" data-i18n="br_q3">Хто ваш типовий клієнт?</label>
+        <input type="text" id="br_who" name="who" data-i18n-ph="br_p3" placeholder="Напр.: студенти й фрилансери, яким ноутбук потрібен завтра" autocomplete="off">
+        <label class="q" for="br_goal" data-i18n="br_q4">Що людина має зробити після тексту?</label>
+        <input type="text" id="br_goal" name="goal" data-i18n-ph="br_p4" placeholder="Залишити заявку, подзвонити, купити…" autocomplete="off">
+        <label class="q" for="br_links" data-i18n="br_q5">Ваш сайт або конкуренти, які подобаються</label>
+        <input type="text" id="br_links" name="links" data-i18n-ph="br_p5" placeholder="Посилання (необов'язково)" autocomplete="off">
+        <label class="q" for="br_when" data-i18n="br_q6">Мова і коли потрібно</label>
+        <input type="text" id="br_when" name="when" data-i18n-ph="br_p6" placeholder="Напр.: українська, до кінця місяця" autocomplete="off">
+        <span class="q" data-i18n="br_q7">Як з вами зв'язатися?</span>
+        <div class="cb-row">
+          <input type="text" name="name" data-i18n-ph="cb_name" placeholder="Ім'я" autocomplete="name">
+          <input type="text" name="contact" data-i18n-ph="cb_phone" placeholder="Телефон або @нік у Telegram" autocomplete="tel" required>
+        </div>
+        <button type="submit" class="btn brief-submit" data-i18n="br_btn">Надіслати бриф</button>
+        <p class="brief-status" id="briefStatus" aria-live="polite"></p>
+      </form>
+    </details>
   </div>
 </section>
 
@@ -724,7 +776,7 @@ const T = {
     ab2_t:"Постійно вчуся", ab2_d:"Навчаюся на інженера програмного забезпечення. Тому з IT- і SaaS-клієнтами говорю їхньою мовою, а не перекладаю з технічної.",
     ab3_t:"Без посередників", ab3_d:"Текст не спотворюють на етапі верстки, бо я бачу його від задуму до публікації.",
     process_title:"Як ми працюємо",
-    st1_t:"Бриф", st1_d:"15 хвилин розмови: яка задача, хто аудиторія, яка мета.",
+    st1_t:"Бриф", st1_d:"15 хвилин розмови або коротка анкета нижче: яка задача, хто аудиторія, яка мета.",
     st2_t:"Дослідження", st2_d:"Дивлюся на продукт, конкурентів і що шукають у Google, інакше текст буде здогадкою.",
     st3_t:"Текст і сторінка", st3_d:"Пишу і структурую, за потреби одразу верстаю в лендинг.",
     st4_t:"Правки й публікація", st4_d:"Два раунди правок входять у вартість. Публікую сам або передаю готове.",
@@ -745,7 +797,8 @@ const T = {
     faq4_q:"Якими мовами пишете?", faq4_a:"Українською, російською, англійською: і копірайтинг, і SEO.",
     audit_kicker:"Безкоштовно", audit_title:"Не готові замовляти? Почніть з малого.", audit_sub:"Надішліть посилання на сторінку: відповім трьома конкретними правками, без дзвінка.", audit_cta:"Надіслати сторінку на аудит →",
     footer_tagline:"Тексти, сторінки, SEO — усе своїми руками.",
-    footer_text:"Smart Attic · Григорій Йвд · копірайтинг, лендинги, SEO", footer_privacy:"Політика конфіденційності"
+    footer_text:"Smart Attic · Григорій Йвд · копірайтинг, лендинги, SEO", footer_privacy:"Політика конфіденційності",
+    br_sum:"Не хочете дзвонити? Заповніть бриф за 5 хвилин", br_lead:"Ті самі питання, що на дзвінку. Обов'язковий лише контакт: решту можна дописати потім.", br_q1:"Що потрібно?", br_o1:"Текст", br_o2:"Лендинг під ключ", br_o3:"SEO-текст", br_o4:"Ще не знаю", br_q2:"Що продаєте і чим відрізняєтесь від конкурентів?", br_p2:"Напр.: ремонт ноутбуків, діагностика за 30 хвилин", br_q3:"Хто ваш типовий клієнт?", br_p3:"Напр.: студенти й фрилансери, яким ноутбук потрібен завтра", br_q4:"Що людина має зробити після тексту?", br_p4:"Залишити заявку, подзвонити, купити…", br_q5:"Ваш сайт або конкуренти, які подобаються", br_p5:"Посилання (необов'язково)", br_q6:"Мова і коли потрібно", br_p6:"Напр.: українська, до кінця місяця", br_q7:"Як з вами зв'язатися?", br_btn:"Надіслати бриф", br_ok:"Дякую! Прочитаю й відпишу, скільки це коштуватиме і коли буде готово.", br_err:"Не вдалося надіслати. Напишіть у Telegram.", br_err_fill:"Впишіть телефон або @нік, щоб я міг відповісти."
   },
   ru:{
     title:"Smart Attic — копирайтинг, лендинги, SEO",
@@ -790,7 +843,7 @@ const T = {
     ab2_t:"Постоянно учусь", ab2_d:"Учусь на инженера программного обеспечения. Поэтому с IT- и SaaS-клиентами говорю на их языке, а не перевожу с технического.",
     ab3_t:"Без посредников", ab3_d:"Текст не искажают на вёрстке, потому что я вижу его от замысла до публикации.",
     process_title:"Как мы работаем",
-    st1_t:"Бриф", st1_d:"15 минут разговора: какая задача, кто аудитория, какая цель.",
+    st1_t:"Бриф", st1_d:"15 минут разговора или короткая анкета ниже: какая задача, кто аудитория, какая цель.",
     st2_t:"Исследование", st2_d:"Смотрю на продукт, конкурентов и что ищут в Google, иначе текст будет догадкой.",
     st3_t:"Текст и страница", st3_d:"Пишу и структурирую, при необходимости сразу верстаю в лендинг.",
     st4_t:"Правки и публикация", st4_d:"Два раунда правок входят в стоимость. Публикую сам или передаю готовое.",
@@ -811,7 +864,8 @@ const T = {
     faq4_q:"На каких языках пишете?", faq4_a:"На украинском, русском, английском: и копирайтинг, и SEO.",
     audit_kicker:"Бесплатно", audit_title:"Не готовы заказывать? Начните с малого.", audit_sub:"Пришлите ссылку на страницу: отвечу тремя конкретными правками, без звонка.", audit_cta:"Отправить страницу на аудит →",
     footer_tagline:"Тексты, страницы, SEO — всё своими руками.",
-    footer_text:"Smart Attic · Григорий Йвд · копирайтинг, лендинги, SEO", footer_privacy:"Политика конфиденциальности"
+    footer_text:"Smart Attic · Григорий Йвд · копирайтинг, лендинги, SEO", footer_privacy:"Политика конфиденциальности",
+    br_sum:"Не хотите звонить? Заполните бриф за 5 минут", br_lead:"Те же вопросы, что на звонке. Обязателен только контакт: остальное можно дописать потом.", br_q1:"Что нужно?", br_o1:"Текст", br_o2:"Лендинг под ключ", br_o3:"SEO-текст", br_o4:"Пока не знаю", br_q2:"Что продаёте и чем отличаетесь от конкурентов?", br_p2:"Напр.: ремонт ноутбуков, диагностика за 30 минут", br_q3:"Кто ваш типичный клиент?", br_p3:"Напр.: студенты и фрилансеры, которым ноутбук нужен завтра", br_q4:"Что человек должен сделать после текста?", br_p4:"Оставить заявку, позвонить, купить…", br_q5:"Ваш сайт или конкуренты, которые нравятся", br_p5:"Ссылки (необязательно)", br_q6:"Язык и когда нужно", br_p6:"Напр.: украинский, до конца месяца", br_q7:"Как с вами связаться?", br_btn:"Отправить бриф", br_ok:"Спасибо! Прочитаю и напишу, сколько это будет стоить и когда будет готово.", br_err:"Не удалось отправить. Напишите в Telegram.", br_err_fill:"Впишите телефон или @ник, чтобы я мог ответить."
   },
   en:{
     title:"Smart Attic — copywriting, landing pages, SEO",
@@ -856,7 +910,7 @@ const T = {
     ab2_t:"Always learning", ab2_d:"I'm studying Software Engineering. So with IT and SaaS clients I speak their language instead of translating from tech-speak.",
     ab3_t:"No middlemen", ab3_d:"Copy doesn't get mangled at the build stage, because I see it from idea to publication.",
     process_title:"How we work",
-    st1_t:"Brief", st1_d:"A 15-minute chat: what's the task, who's the audience, what's the goal.",
+    st1_t:"Brief", st1_d:"A 15-minute chat or the short form below: what's the task, who's the audience, what's the goal.",
     st2_t:"Research", st2_d:"I look at the product, competitors and what people search for, otherwise copy is just a guess.",
     st3_t:"Copy and page", st3_d:"I write and structure it, and build it into a landing page right away if needed.",
     st4_t:"Edits and launch", st4_d:"Two rounds of edits are included. I publish it myself or hand over the finished page.",
@@ -877,7 +931,8 @@ const T = {
     faq4_q:"Which languages do you write in?", faq4_a:"Ukrainian, Russian and English: both copywriting and SEO.",
     audit_kicker:"Free", audit_title:"Not ready to hire? Start small.", audit_sub:"Send me a link to your page: I'll reply with three concrete fixes, no call needed.", audit_cta:"Send your page for a review →",
     footer_tagline:"Copy, pages, SEO — all done by hand.",
-    footer_text:"Smart Attic · Gregory Ivd · copywriting, landing pages, SEO", footer_privacy:"Privacy Policy"
+    footer_text:"Smart Attic · Gregory Ivd · copywriting, landing pages, SEO", footer_privacy:"Privacy Policy",
+    br_sum:"Rather not call? Fill in a 5-minute brief", br_lead:"The same questions I'd ask on a call. Only the contact is required — the rest can wait.", br_q1:"What do you need?", br_o1:"Copy", br_o2:"Turnkey landing page", br_o3:"SEO article", br_o4:"Not sure yet", br_q2:"What do you sell, and how are you different from competitors?", br_p2:"E.g. laptop repair, diagnostics in 30 minutes", br_q3:"Who is your typical customer?", br_p3:"E.g. students and freelancers who need the laptop back tomorrow", br_q4:"What should the reader do after reading?", br_p4:"Send a request, call, buy…", br_q5:"Your site, or competitors you like", br_p5:"Links (optional)", br_q6:"Language and deadline", br_p6:"E.g. English, by the end of the month", br_q7:"How can I reach you?", br_btn:"Send the brief", br_ok:"Thanks! I'll read it and reply with a price and a deadline.", br_err:"Couldn't send. Please message me on Telegram.", br_err_fill:"Please enter a phone number or @handle so I can reply."
   }
 };
 const HTML_LANG = { ua:"uk", ru:"ru", en:"en" };
@@ -1024,6 +1079,50 @@ function failMessage(msg){
       console.error('Заявка на аудит не пішла:', err);
       statusEl.innerHTML = failMessage(tr('audit_err'));
       statusEl.className = 'audit-status err';
+    }).finally(function(){ btn.disabled = false; });
+  });
+})();
+
+/* ===== Brief form -> Telegram (same Apps Script relay) =====
+   Реле приймає лише name/phone/note, тому відповіді брифу складаються в note. */
+(function(){
+  var form = document.getElementById('briefForm');
+  if(!form) return;
+  var statusEl = document.getElementById('briefStatus');
+  var btn = form.querySelector('.brief-submit');
+  function curLang(){ var b = document.querySelector('#langs button.on'); return (b && b.dataset.lang) || 'ua'; }
+  function tr(k){ var d = T[curLang()] || T.ua; return d[k] || (T.ua && T.ua[k]) || ''; }
+  function val(n){ var el = form.querySelector('[name="' + n + '"]'); return el ? (el.value || '').trim() : ''; }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var contact = val('contact');
+    if(!contact){
+      statusEl.textContent = tr('br_err_fill');
+      statusEl.className = 'brief-status err';
+      return;
+    }
+    var svc = form.querySelector('[name="svc"]:checked');
+    var note = [
+      'Бриф',
+      'Послуга: '    + (svc ? svc.value : '—'),
+      'Продукт: '    + (val('what')  || '—'),
+      'Клієнт: '     + (val('who')   || '—'),
+      'Дія: '        + (val('goal')  || '—'),
+      'Посилання: '  + (val('links') || '—'),
+      'Мова/строк: ' + (val('when')  || '—')
+    ].join('\n');
+    btn.disabled = true;
+    statusEl.className = 'brief-status';
+    statusEl.textContent = tr('cb_sending');
+    sendLead({ name:(val('name') || '—'), phone:contact, note:note }).then(function(){
+      if(window.fbq) fbq('track','Lead');
+      form.reset();
+      statusEl.textContent = tr('br_ok');
+      statusEl.className = 'brief-status ok';
+    }).catch(function(err){
+      console.error('Бриф не пішов:', err);
+      statusEl.innerHTML = failMessage(tr('br_err'));
+      statusEl.className = 'brief-status err';
     }).finally(function(){ btn.disabled = false; });
   });
 })();
