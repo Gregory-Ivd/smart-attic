@@ -5,7 +5,11 @@
 
     ⚠️  ДВА КРОКИ, БЕЗ ЯКИХ ЗАЯВКИ НЕ ДОХОДЯТЬ:
 
-    1. Вписати справжній токен бота в BOT_TOKEN (без дужок < >).
+    1. Токен бота — НЕ в коді (репозиторій публічний), а у властивостях:
+       Project Settings (⚙️) → Script Properties → Add script property:
+         Property: BOT_TOKEN    Value: токен від @BotFather
+       Якщо токен відкликали — замінити тільки Value; нове розгортання
+       для цього не потрібне.
 
     2. При розгортанні (Deploy → New deployment → Web app) виставити:
          Execute as:    Me
@@ -23,7 +27,8 @@
 */
 
 // ===================== НАЛАШТУВАННЯ =====================
-const BOT_TOKEN = "1753703916:ВСТАВ_РЕШТУ_ТОКЕНА";  // <-- справжній токен від @BotFather, без < >
+// Токен читається зі Script Properties (див. крок 1 угорі), не з коду.
+const BOT_TOKEN = PropertiesService.getScriptProperties().getProperty("BOT_TOKEN") || "";
 const CHAT_ID   = "918580618";                       // Telegram chat_id Григорія (звірено 07.08.2026)
 const EMAIL_TO  = "apshanuivd@gmail.com";            // дубль заявки на пошту ("" — вимкнути)
 // ========================================================
@@ -50,8 +55,17 @@ function doPost(e) {
     }
 
     if (EMAIL_TO) {
+      // Якщо Telegram упав, кажемо про це в листі: інакше сайт пише «Дякую»,
+      // заявка лежить тільки в пошті, і поломку ніхто не помічає тижнями.
+      var subject = "Заявка з лендинга Smart Attic";
+      var body = msg;
+      if (problems.length) {
+        subject = "⚠️ Telegram не працює — " + subject;
+        body = msg + "\n\n— — —\nЗаявка НЕ дійшла в Telegram: " + problems.join(" | ")
+             + "\nПеревір токен: Project Settings → Script Properties → BOT_TOKEN, потім запусти testRelay.";
+      }
       try {
-        MailApp.sendEmail(EMAIL_TO, "Заявка з лендинга Smart Attic", msg);
+        MailApp.sendEmail(EMAIL_TO, subject, body);
       } catch (mailErr) {
         problems.push("email: " + mailErr.message);
       }
